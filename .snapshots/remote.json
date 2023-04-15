@@ -1,0 +1,65 @@
+{
+  "form:sadr": {
+    "192-168-0-104.my.local-ip.co/medic": "1MLV7c/LRRr27BfRmTzKCg==",
+    "192-168-1-129.my.local-ip.co/medic": "BRraW/Re1/gwuM/JmRwDKw=="
+  },
+  "resources": {
+    "192-168-0-104.my.local-ip.co/medic": "Ybei8ggndB2ImseppXsc9Q==",
+    "192-168-1-129.my.local-ip.co/medic": "L2JTfOip4bcrxS+hopkprg=="
+  },
+  "privacy-policies": {
+    "192-168-0-104.my.local-ip.co/medic": "/twR+Q8i4pmWKN/3fUP6tQ==",
+    "192-168-1-129.my.local-ip.co/medic": "/twR+Q8i4pmWKN/3fUP6tQ=="
+  },
+  "form:pqhpt": {
+    "192-168-0-104.my.local-ip.co/medic": "/ci3BFMPHr2htFUICaj77Q==",
+    "192-168-1-129.my.local-ip.co/medic": "NCgLGjXd/ffMIlODRfoOKQ=="
+  },
+  "form:aefi": {
+    "192-168-0-104.my.local-ip.co/medic": "bpp1U5zPXOa/9oxoxzkELQ==",
+    "192-168-1-129.my.local-ip.co/medic": "NZeXHiOlwi8reMwNsYqmFw=="
+  },
+  "form:pregnancy": {
+    "192-168-0-104.my.local-ip.co/medic": "qzFYFRIOfOB/lN3PqcJcBQ=="
+  },
+  "form:contact:clinic:create": {
+    "192-168-0-104.my.local-ip.co/medic": "YswZh7nVOPzi0JNCLoVwPw==",
+    "192-168-1-129.my.local-ip.co/medic": "aKnG2O9CbxPaJL33pN2IGw=="
+  },
+  "form:contact:clinic:edit": {
+    "192-168-0-104.my.local-ip.co/medic": "nQoCNI7jlmuc/+tpcdti8g==",
+    "192-168-1-129.my.local-ip.co/medic": "EbLMFde5xFCFOq4xCzV9hQ=="
+  },
+  "form:contact:district_hospital:create": {
+    "192-168-0-104.my.local-ip.co/medic": "H9I4e23JyjPxJtHs2C+AxA==",
+    "192-168-1-129.my.local-ip.co/medic": "OYhOEnf2HL1tNEz0fQxC+w=="
+  },
+  "form:contact:district_hospital:edit": {
+    "192-168-0-104.my.local-ip.co/medic": "cX3yxlJvZtW3hMMz4e/VKg==",
+    "192-168-1-129.my.local-ip.co/medic": "ekmYHisxwSZLnBuBNZ/+Wg=="
+  },
+  "form:contact:health_center:create": {
+    "192-168-0-104.my.local-ip.co/medic": "xjS88OYtsUNSkZWT8X3VMw==",
+    "192-168-1-129.my.local-ip.co/medic": "KqhfCwvXAS+iV2ywvG6GzQ=="
+  },
+  "form:contact:health_center:edit": {
+    "192-168-0-104.my.local-ip.co/medic": "Nj6jLZo7RHgNQ4qfsKMurw==",
+    "192-168-1-129.my.local-ip.co/medic": "WpRlIa1abHkkjFMQRdXQoQ=="
+  },
+  "form:contact:person:create": {
+    "192-168-0-104.my.local-ip.co/medic": "6qDB8HcRtnlSw3xNmFuWGA==",
+    "192-168-1-129.my.local-ip.co/medic": "PymkJ5r4R+61BnO31LHFfw=="
+  },
+  "form:contact:person:edit": {
+    "192-168-0-104.my.local-ip.co/medic": "ahEp/1M4zTg5yWfNbb34Yw==",
+    "192-168-1-129.my.local-ip.co/medic": "kTh2aUod5KnSLrDxlsVLGg=="
+  },
+  "branding": {
+    "192-168-0-104.my.local-ip.co/medic": "rGCUox+ypsMDUJbEiowRVQ==",
+    "192-168-1-129.my.local-ip.co/medic": "rGCUox+ypsMDUJbEiowRVQ=="
+  },
+  "partners": {
+    "192-168-0-104.my.local-ip.co/medic": "3GrdKwdFP5LXFjoILKXzkA==",
+    "192-168-1-129.my.local-ip.co/medic": "3GrdKwdFP5LXFjoILKXzkA=="
+  }
+}

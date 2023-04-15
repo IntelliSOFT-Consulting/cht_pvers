@@ -1,0 +1,9 @@
+{
+    "icon": "icon-aefi",
+    "title": "Adverse Event Following Immunization",
+    "context": {
+        "person": true,
+        "place": false,
+        "expression": "contact.type === 'person'"
+    }
+}

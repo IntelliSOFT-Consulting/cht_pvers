@@ -1,0 +1,71 @@
+{
+  "resources": {
+    "localhost/medic": "L2JTfOip4bcrxS+hopkprg=="
+  },
+  "privacy-policies": {
+    "localhost/medic": "/twR+Q8i4pmWKN/3fUP6tQ=="
+  },
+  "form:assessment": {
+    "localhost/medic": "kgFQvlhyAbSPnZYwksP0vQ=="
+  },
+  "form:aefi": {
+    "localhost/medic": "onsw+Dhdx53RysdoS9lmDA=="
+  },
+  "form:sadr": {
+    "localhost/medic": "dcOFBfaZxYVhlpLSekLK0g=="
+  },
+  "form:devices": {
+    "localhost/medic": "N4nL+wfpboISff6CMLy0hw=="
+  },
+  "form:medication": {
+    "localhost/medic": "woYTIbS3eE11Fy6Tp7eYVQ=="
+  },
+  "form:padr": {
+    "localhost/medic": "Qn3U4b1anc6q5bJsDPNvQA=="
+  },
+  "form:pqhpt": {
+    "localhost/medic": "wQlChHFeeOasadoBQn7ixg=="
+  },
+  "form:transfusion": {
+    "localhost/medic": "tlkevNjCgp072F8vvuI/kw=="
+  },
+  "form:aefis": {
+    "localhost/medic": "M6JWkpv2dzsltwwx0Kxxow=="
+  },
+  "form:pqhpts": {
+    "localhost/medic": "c+YswV67XnDXioGWOJh2YQ=="
+  },
+  "form:pregnancy": {
+    "localhost/medic": "3L0tPCbxa15r3hX/cCrFpg=="
+  },
+  "branding": {
+    "localhost/medic": "rGCUox+ypsMDUJbEiowRVQ=="
+  },
+  "partners": {
+    "localhost/medic": "3GrdKwdFP5LXFjoILKXzkA=="
+  },
+  "form:contact:clinic:create": {
+    "localhost/medic": "3hwum+AqIeOTU7+SvFcrdw=="
+  },
+  "form:contact:clinic:edit": {
+    "localhost/medic": "1v+f/kJIX6XJ0hixRsFy5Q=="
+  },
+  "form:contact:district_hospital:create": {
+    "localhost/medic": "KVs3tNAVDr5ldLZEKJoOAQ=="
+  },
+  "form:contact:district_hospital:edit": {
+    "localhost/medic": "mc4CHvVqKD3oJxjGJ1iOkg=="
+  },
+  "form:contact:health_center:create": {
+    "localhost/medic": "uoJ0soU4wsiWpcHQymXnCQ=="
+  },
+  "form:contact:health_center:edit": {
+    "localhost/medic": "ADfY6m8O16VE6LGBWP44EQ=="
+  },
+  "form:contact:person:create": {
+    "localhost/medic": "so0UzFYKzWRKg0cjP+Mh6Q=="
+  },
+  "form:contact:person:edit": {
+    "localhost/medic": "XRPbZXzHPySn4JiURsA25Q=="
+  }
+}

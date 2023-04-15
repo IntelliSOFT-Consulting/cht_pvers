@@ -1,0 +1,244 @@
+{
+  "roles": {
+    "data_entry": {
+      "name": "usertype.data-entry"
+    },
+    "analytics": {
+      "name": "usertype.analytics"
+    },
+    "gateway": {
+      "name": "usertype.gateway"
+    },
+    "program_officer": {
+      "name": "usertype.program-officer"
+    },
+    "crfo": {
+      "name": "usertype.crfo"
+    },
+    "chw_supervisor": {
+      "name": "usertype.chw-supervisor",
+      "offline": true
+    },
+    "chw": {
+      "name": "usertype.chw",
+      "offline": true
+    }
+  },
+  "permissions": {
+    "can_access_gateway_api": [
+      "gateway"
+    ],
+    "can_bulk_delete_reports": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_configure": [
+      "program_officer",
+      "crfo"
+    ],
+    "can_create_people": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_create_places": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_create_records": [
+      "data_entry",
+      "gateway",
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_create_users": [
+      "program_officer"
+    ],
+    "can_delete_contacts": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_delete_messages": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_delete_reports": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_delete_users": [
+      "program_officer"
+    ],
+    "can_edit": [
+      "gateway",
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_edit_profile": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_edit_verification": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_export_all": [
+      "program_officer",
+      "crfo"
+    ],
+    "can_export_contacts": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_export_feedback": [
+      "program_officer"
+    ],
+    "can_export_messages": [
+      "analytics",
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_log_out_on_android": [],
+    "can_update_places": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_update_reports": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_update_users": [
+      "program_officer"
+    ],
+    "can_export_dhis": [
+      "national_admin",
+      "crfo"
+    ],
+    "can_verify_reports": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_analytics": [
+      "analytics",
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_analytics_tab": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_call_action": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_contacts": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_contacts_tab": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_last_visited_date": [],
+    "can_view_uhc_stats": [],
+    "can_view_message_action": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_messages": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_messages_tab": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_outgoing_messages": [
+      "program_officer"
+    ],
+    "can_view_reports": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_reports_tab": [
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_tasks": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_tasks_tab": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_tasks_group": [
+      "chw"
+    ],
+    "can_view_unallocated_data_records": [
+      "gateway",
+      "program_officer",
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_users": [
+      "program_officer"
+    ],
+    "can_write_wealth_quintiles": [],
+    "can_aggregate_targets": [
+      "chw_supervisor"
+    ],
+    "can_upgrade": [
+      "program_officer"
+    ],
+    "can_view_old_filter_and_search": [],
+    "can_view_old_action_bar": []
+  },
+  "transitions": {
+    "accept_patient_reports": false,
+    "conditional_alerts": false,
+    "default_responses": false,
+    "update_sent_by": false,
+    "registration": false,
+    "update_clinics": false,
+    "update_notifications": false,
+    "update_scheduled_reports": false,
+    "update_sent_forms": false,
+    "generate_patient_id_on_people": true,
+    "death_reporting": true
+  },
+  "forms": {},
+  "schedules": [],
+  "contact_summary": "var ContactSummary = {}; !function(e,t){if('object'==typeof exports&&'object'==typeof module)module.exports=t();else if('function'==typeof define&&define.amd)define([],t);else{var n=t();for(var r in n)('object'==typeof exports?exports:e)[r]=n[r]}}(ContactSummary,(function(){return function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){'undefined'!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:'Module'}),Object.defineProperty(e,'__esModule',{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&'object'==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,'default',{enumerable:!0,value:e}),2&t&&'string'!=typeof e)for(var o in e)n.d(r,o,function(t){return e[t]}.bind(null,o));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,'a',t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p='',n(n.s=0)}([function(e,t,n){var r=n(1),o=n(2);e.exports=o(r,contact,reports)},function(e,t){e.exports={fields:[],cards:[],context:{}}},function(e,t){function n(e){return e?Array.isArray(e)?e:[e]:[]}function r(e,t){switch(typeof e){case'undefined':return!0;case'function':return e(t);default:return e}}function o(e,t,n){if(r(e.appliesIf,n)){var o='function'==typeof e.fields?e.fields(n):e.fields.filter((function(e){return r(e.appliesIf,n)})).map((function(e){var t={};return i(e,t,'label'),i(e,t,'value'),i(e,t,'translate'),i(e,t,'filter'),i(e,t,'width'),i(e,t,'icon'),e.context&&(t.context={},i(e.context,t.context,'count'),i(e.context,t.context,'total')),t}));return e.modifyContext&&e.modifyContext(t,n),{label:e.label,fields:o}}function i(e,t,r){switch(typeof e[r]){case'undefined':return;case'function':t[r]=e[r](n);break;default:t[r]=e[r]}}}e.exports=function(e,t,r){var i=e.fields||[],f=e.context||{},u=e.cards||[],c=t&&('contact'===t.type?t.contact_type:t.type),l={cards:[],fields:i.filter((function(e){var t=n(e.appliesToType),r=t.filter((function(e){return e&&'!'===e.charAt(0)}));if((0===t.length||t.includes(c)||r.length>0&&!r.includes('!'+c))&&(!e.appliesIf||e.appliesIf()))return delete e.appliesToType,delete e.appliesIf,!0}))};return u.forEach((function(e){var t,i,u,a,p=n(e.appliesToType);if(p.includes('report')&&p.length>1)throw new Error('You cannot set appliesToType to an array which includes the type \\'report\\' and another type.');if(p.includes('report'))for(t=0;t<r.length;++t)i=r[t],!(a=i)||a.errors&&a.errors.length||(u=o(e,f,i))&&l.cards.push(u);else{if(!p.includes(c)&&p.length>0)return;(u=o(e,f))&&l.cards.push(u)}})),l.context=f,l}}])})); return ContactSummary;",
+  "tasks": {
+    "rules": "define Target { _id: null, contact: null, deleted: null, type: null, pass: null, date: null, groupBy: null }\ndefine Contact { contact: null, reports: null, tasks: null }\ndefine Task { _id: null, deleted: null, doc: null, contact: null, icon: null, date: null, readyStart: null, readyEnd: null, title: null, fields: null, resolved: null, priority: null, priorityLabel: null, reports: null, actions: null }\nrule GenerateEvents {\n  when { c: Contact } then { !function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){'undefined'!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:'Module'}),Object.defineProperty(e,'__esModule',{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&'object'==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,'default',{enumerable:!0,value:e}),2&t&&'string'!=typeof e)for(var o in e)n.d(r,o,function(t){return e[t]}.bind(null,o));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,'a',t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p='',n(n.s=1)}([function(e,t){e.exports=function(e){var t={};!function e(t,n){var r=Object.keys(t);for(var o in r){var a=r[o];switch(typeof t[a]){case'object':e(t[a],n);break;case'function':t[a]=t[a].bind(n)}}}(e,t),t.definition=function e(t){var n=Object.assign({},t),r=Object.keys(n);for(var o in r){var a=r[o];if(Array.isArray(n[a])){n[a]=n[a].slice(0);for(var i=0;i<n[a].length;++i)'object'==typeof n[a][i]&&(n[a][i]=e(n[a][i]))}else'object'==typeof n[a]&&(n[a]=e(n[a]))}return n}(e)}},function(e,t,n){var r=n(2),o=n(3),a=n(4);n(6)(o,c,Utils,Target,emit),a(r,c,Utils,Task,emit),emit('_complete',{_id:!0})},function(e,t){e.exports=[{name:'assessment-after-registration',title:'First Assessment',icon:'icon-healthcare',appliesTo:'contacts',appliesToType:['patient'],appliesIf:e=>user.parent&&'chw_area'===user.parent.contact_type&&!e.contact.date_of_death&&!e.contact.muted,actions:[{form:'sadr'}],events:[{start:7,days:7,end:0}]}]},function(e,t){e.exports=[]},function(e,t,n){var r=n(0),o=n(5);function a(e,t,n,r,o,a){var i;if(e.appliesToType){var c;if('contacts'===e.appliesTo){if(!o.contact)return;c='contact'===o.contact.type?o.contact.contact_type:o.contact.type}else{if(!a)return;c=a.form}if(-1===e.appliesToType.indexOf(c))return}if('scheduled_tasks'===e.appliesTo||!e.appliesIf||e.appliesIf(o,a))if('scheduled_tasks'===e.appliesTo){if(a&&e.appliesIf){if(!a.scheduled_tasks)return;for(i=0;i<a.scheduled_tasks.length;i++)e.appliesIf(o,a,i)&&d(i)}}else d();function s(e,t,n){var r;return(r='function'==typeof e.contactLabel?e.contactLabel(t,n):e.contactLabel)?{name:r}:t.contact}function d(i){var c,d,p,u,l=null;for(c=0;c<e.events.length;c++){if((d=e.events[c]).dueDate)l=d.dueDate(d,o,a,i);else if(a)l=void 0!==i?new Date(t.addDate(new Date(a.scheduled_tasks[i].due),d.days)):new Date(t.addDate(new Date(a.reported_date),d.days));else if(d.dueDate)l=d.dueDate(d,o);else{var y=o.contact&&o.contact.reported_date?new Date(o.contact.reported_date):new Date;l=new Date(t.addDate(y,d.days))}t.isTimely(l,d)&&(u={_id:(a?a._id:o.contact&&o.contact._id)+'~'+(d.id||c)+'~'+e.name,deleted:!(!(o.contact&&o.contact.deleted||a)||!a.deleted),doc:o,contact:s(e,o,a),icon:e.icon,date:l,readyStart:d.start||0,readyEnd:d.end||0,title:e.title,resolved:e.resolvedIf(o,a,d,l,i),actions:f(e.actions,d)},void 0!==i&&(u._id+='-'+i),'function'==typeof(p=e.priority)&&(p=p(o,a)),p&&(u.priority=p.level,u.priorityLabel=p.label),r('task',new n(u)))}}function f(t,n){return e.actions.map((function(e){return function(e,t){var n={source:'task',source_id:a?a._id:o.contact&&o.contact._id,contact:o.contact};e.modifyContent&&e.modifyContent(n,o,a,t);return{type:e.type||'report',form:e.form,label:e.label||'Follow up',content:n}}(e,n)}))}}e.exports=function(e,t,n,i,c){if(e)for(var s,d,f=0;f<e.length;++f)switch('function'!=typeof(s=Object.assign({},e[f],o)).resolvedIf&&(s.resolvedIf=function(e,t,r,o){return s.defaultResolvedIf(e,t,r,o,n)}),r(s),s.appliesTo){case'reports':case'scheduled_tasks':for(var p=0;p<t.reports.length;++p)d=t.reports[p],a(s,n,i,c,t,d);break;case'contacts':t.contact&&a(s,n,i,c,t);break;default:throw new Error('Unrecognised task.appliesTo: '+s.appliesTo)}}},function(e,t){e.exports={defaultResolvedIf:function(e,t,n,r,o){var a,i;o||(o=Utils);var c=function(e){var t;if(!e||!e.actions)return;return(t=e.actions.find((function(e){return!e.type||'report'===e.type})))&&t.form}(this.definition);if(!c)throw new Error('Could not find the default resolving form!');return a=0,a=t?Math.max(o.addDate(r,-n.start).getTime(),t.reported_date+1):o.addDate(r,-n.start).getTime(),i=o.addDate(r,n.end+1).getTime(),o.isFormSubmittedInWindow(e.reports,c,a,i)}}},function(e,t,n){var r=n(0);function o(e,t,n,r,o,a){var i=!!a;if(o.contact){var c='contact'===o.contact.type?o.contact.contact_type:o.contact.type,s=i?a.form:c;if(!(e.appliesToType&&e.appliesToType.indexOf(s)<0)&&(!e.appliesIf||e.appliesIf(o,a)))for(var d=i?a:o.contact,f=function(e,t,n){var r;return r='function'==typeof e.idType?e.idType(t,n):'report'===e.idType?n&&n._id:t.contact&&t.contact._id,Array.isArray(r)||(r=[r]),r}(e,o,a),p=!e.passesIf||!!e.passesIf(o,a),u=function(e,t,n,r){if('function'==typeof e.date)return e.date(n,r)||t.now().getTime();if(void 0===e.date||null===e.date||'now'===e.date)return t.now().getTime();if('reported'===e.date)return r?r.reported_date:n.contact.reported_date;throw new Error('Unrecognised value for target.date: '+e.date)}(e,n,o,a),l=e.groupBy&&e.groupBy(o,a),y=0;y<f.length;++y){var v=new t({_id:f[y]+'~'+e.id,contact:o.contact,deleted:!!d.deleted,type:e.id,pass:p,groupBy:l,date:u});e.emitCustom?e.emitCustom(m,v,o,a):m(v)}}function m(e){r('target',e)}}e.exports=function(e,t,n,a,i){for(var c=0;c<e.length;++c){var s=e[c];switch(r(s),s.appliesTo){case'contacts':o(s,a,n,i,t);break;case'reports':for(var d=0;d<t.reports.length;++d){o(s,a,n,i,t,t.reports[d])}break;default:throw new Error('Unrecognised target.appliesTo: '+s.appliesTo)}}}}]); }\n}",
+    "targets": {
+      "enabled": true,
+      "items": []
+    }
+  }
+}

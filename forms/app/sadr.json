@@ -1,0 +1,8 @@
+{
+    "title": "Serious Adverse Drug Reaction",
+    "icon": "icon_sadr",
+    "context": {
+        "person": true,
+        "place": false
+    }
+}
