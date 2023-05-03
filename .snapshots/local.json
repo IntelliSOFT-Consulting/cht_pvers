@@ -1,6 +1,6 @@
 {
   "resources": {
-    "localhost/medic": "L2JTfOip4bcrxS+hopkprg=="
+    "localhost/medic": "Ybei8ggndB2ImseppXsc9Q=="
   },
   "privacy-policies": {
     "localhost/medic": "/twR+Q8i4pmWKN/3fUP6tQ=="
@@ -9,10 +9,10 @@
     "localhost/medic": "kgFQvlhyAbSPnZYwksP0vQ=="
   },
   "form:aefi": {
-    "localhost/medic": "onsw+Dhdx53RysdoS9lmDA=="
+    "localhost/medic": "kw7HOCE1GlJ/YqU/yAOUwg=="
   },
   "form:sadr": {
-    "localhost/medic": "dcOFBfaZxYVhlpLSekLK0g=="
+    "localhost/medic": "uDKLXbhyumKIt1x1sFcwSA=="
   },
   "form:devices": {
     "localhost/medic": "N4nL+wfpboISff6CMLy0hw=="
@@ -24,7 +24,7 @@
     "localhost/medic": "Qn3U4b1anc6q5bJsDPNvQA=="
   },
   "form:pqhpt": {
-    "localhost/medic": "wQlChHFeeOasadoBQn7ixg=="
+    "localhost/medic": "FLu3fZge88CsE7sB2x+R2Q=="
   },
   "form:transfusion": {
     "localhost/medic": "tlkevNjCgp072F8vvuI/kw=="
@@ -45,27 +45,30 @@
     "localhost/medic": "3GrdKwdFP5LXFjoILKXzkA=="
   },
   "form:contact:clinic:create": {
-    "localhost/medic": "3hwum+AqIeOTU7+SvFcrdw=="
+    "localhost/medic": "Ssv06tBYankaQR+bRwbgsw=="
   },
   "form:contact:clinic:edit": {
-    "localhost/medic": "1v+f/kJIX6XJ0hixRsFy5Q=="
+    "localhost/medic": "xYsxbnS62NritA69Rsohig=="
   },
   "form:contact:district_hospital:create": {
-    "localhost/medic": "KVs3tNAVDr5ldLZEKJoOAQ=="
+    "localhost/medic": "NTIO+iJyjal63wfyLXX7UQ=="
   },
   "form:contact:district_hospital:edit": {
-    "localhost/medic": "mc4CHvVqKD3oJxjGJ1iOkg=="
+    "localhost/medic": "r9c4u0yaJoL/Lyu7O5Oe9Q=="
   },
   "form:contact:health_center:create": {
-    "localhost/medic": "uoJ0soU4wsiWpcHQymXnCQ=="
+    "localhost/medic": "Yd4LPx5gJNJDVGiGiN8eJQ=="
   },
   "form:contact:health_center:edit": {
-    "localhost/medic": "ADfY6m8O16VE6LGBWP44EQ=="
+    "localhost/medic": "BA7dL18prKlxdtlly1vbDg=="
   },
   "form:contact:person:create": {
-    "localhost/medic": "so0UzFYKzWRKg0cjP+Mh6Q=="
+    "localhost/medic": "Fa4Ga576TYa51d+idsxQCQ=="
   },
   "form:contact:person:edit": {
-    "localhost/medic": "XRPbZXzHPySn4JiURsA25Q=="
+    "localhost/medic": "7H5wmpOW/BUBSzTRC09b5A=="
+  },
+  "messages-en": {
+    "localhost/medic": "sVxHylcG5qWJhd6HcwuUvA=="
   }
 }

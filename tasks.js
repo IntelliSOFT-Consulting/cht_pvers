@@ -7,8 +7,8 @@ module.exports = [{
   appliesIf: c => user.parent && user.parent.contact_type === 'chw_area' && !c.contact.date_of_death && !c.contact.muted,
   actions: [{ form: 'sadr' }],
   events: [{
-    start: 7,
-    days: 7,
+    start: 0,
+    days: 0,
     end: 0,
   }],
 }];
