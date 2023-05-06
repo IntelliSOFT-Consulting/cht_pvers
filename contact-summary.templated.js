@@ -13,8 +13,4 @@ module.exports = {
   fields: fields
 };
 
-// module.exports = {
-//   fields: [],
-//   cards: [],
-//   context: {}
-// };
+ 
