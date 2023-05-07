@@ -8,7 +8,7 @@ module.exports = [
   {
     id: 'sadr-all-time',
     type: 'count',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-sadr',
     goal: -1,
     translation_key: 'targets.sadr.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
@@ -19,7 +19,7 @@ module.exports = [
   {
     id: 'sadr-this-month',
     type: 'count',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-sadr',
     goal: -1,
     translation_key: 'targets.sadr.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
@@ -51,7 +51,7 @@ module.exports = [
   {
     id: 'aefi-all-time',
     type: 'count',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-aefi',
     goal: -1,
     translation_key: 'targets.aefi.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
@@ -62,7 +62,7 @@ module.exports = [
   {
     id: 'aefi-this-month',
     type: 'count',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-aefi',
     goal: -1,
     translation_key: 'targets.aefi.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
@@ -94,7 +94,7 @@ module.exports = [
   {
     id: 'pqhpt-all-time',
     type: 'count',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-pqhpt',
     goal: -1,
     translation_key: 'targets.pqhpt.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
@@ -105,7 +105,7 @@ module.exports = [
   {
     id: 'pqhpt-this-month',
     type: 'count',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-pqhpt',
     goal: -1,
     translation_key: 'targets.pqhpt.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
