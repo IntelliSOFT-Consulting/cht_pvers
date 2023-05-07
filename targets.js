@@ -2,74 +2,41 @@
 const getHouseholdId = (contact) => contact.contact && contact.contact.type === 'clinic' ? contact.contact._id : contact.contact.parent && contact.contact.parent._id;
 
 //Define a function to determine if contact is patient
-const isPatient = (contact) => contact.contact && contact.contact.type === 'person' && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
+// const isPatient = (contact) => contact.contact && contact.contact.type === 'person' && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
 
 module.exports = [
   {
-    id: 'assessments-all-time',
+    id: 'sadr-all-time',
     type: 'count',
     icon: 'icon-healthcare-assessment',
     goal: -1,
-    translation_key: 'targets.assessments.title',
+    translation_key: 'targets.sadr.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
     appliesTo: 'reports',
-    appliesToType: ['assessment'],
+    appliesToType: ['sadr'],
     date: 'now'
   },
   {
-    id: 'assessments-this-month',
+    id: 'sadr-this-month',
     type: 'count',
     icon: 'icon-healthcare-assessment',
-    goal: 2,
-    translation_key: 'targets.assessments.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    appliesTo: 'reports',
-    appliesToType: ['assessment'],
-    date: 'reported'
-  },
-  {
-    id: 'total-contacts-with-cough-this-month',
-    type: 'count',
-    icon: 'icon-cough',
     goal: -1,
-    translation_key: 'targets.assessments.total.cough.title',
+    translation_key: 'targets.sadr.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
-    appliesToType: ['assessment'],
-    appliesIf: function (contact, report) {
-      return Utils.getField(report, 'group_assessment.cough') === 'yes';
-    },
-    idType: 'contact',
+    appliesToType: ['sadr'],
     date: 'reported'
   },
+  
   {
-    id: 'percentage-contacts-with-cough-this-month',
-    type: 'percent',
-    icon: 'icon-cough',
-    goal: -1,
-    translation_key: 'targets.assessments.percentage.cough.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    percentage_count_translation_key: 'targets.assessments.percentage.with.cough',
-    appliesTo: 'reports',
-    appliesToType: ['assessment'],
-    appliesIf: function (contact) {
-      return isPatient(contact);
-    },
-    passesIf: function(contact, report) {
-      return Utils.getField(report, 'group_assessment.cough') === 'yes';
-    },
-    idType: 'contact',
-    date: 'reported'
-  },
-  {
-    id: 'households-with-assessments-this-month',
+    id: 'households-with-sadr-this-month',
     type: 'count',
     icon: 'icon-household',
-    goal: 2,
-    translation_key: 'targets.households.with.assessments.title',
+    goal: -1,
+    translation_key: 'targets.households.with.sadr.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
-    appliesToType: ['assessment'],
+    appliesToType: ['sadr'],
     date: 'reported',
     emitCustom: (emit, original, contact) => {
       const householdId = getHouseholdId(contact);
@@ -80,4 +47,89 @@ module.exports = [
     }
   },
   
+  // AEFI
+  {
+    id: 'aefi-all-time',
+    type: 'count',
+    icon: 'icon-healthcare-assessment',
+    goal: -1,
+    translation_key: 'targets.aefi.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['aefi'],
+    date: 'now'
+  },
+  {
+    id: 'aefi-this-month',
+    type: 'count',
+    icon: 'icon-healthcare-assessment',
+    goal: -1,
+    translation_key: 'targets.aefi.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['aefi'],
+    date: 'reported'
+  },
+  
+  {
+    id: 'households-with-aefi-this-month',
+    type: 'count',
+    icon: 'icon-household',
+    goal: -1,
+    translation_key: 'targets.households.with.aefi.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['aefi'],
+    date: 'reported',
+    emitCustom: (emit, original, contact) => {
+      const householdId = getHouseholdId(contact);
+      emit(Object.assign({}, original, {
+        _id: householdId,
+        pass: true
+      }));
+    }
+  },
+
+  // PQHPTs
+  {
+    id: 'pqhpt-all-time',
+    type: 'count',
+    icon: 'icon-healthcare-assessment',
+    goal: -1,
+    translation_key: 'targets.pqhpt.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['pqhpt'],
+    date: 'now'
+  },
+  {
+    id: 'pqhpt-this-month',
+    type: 'count',
+    icon: 'icon-healthcare-assessment',
+    goal: -1,
+    translation_key: 'targets.pqhpt.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['pqhpt'],
+    date: 'reported'
+  },
+  
+  {
+    id: 'households-with-pqhpt-this-month',
+    type: 'count',
+    icon: 'icon-household',
+    goal: -1,
+    translation_key: 'targets.households.with.pqhpt.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['pqhpt'],
+    date: 'reported',
+    emitCustom: (emit, original, contact) => {
+      const householdId = getHouseholdId(contact);
+      emit(Object.assign({}, original, {
+        _id: householdId,
+        pass: true
+      }));
+    }
+  },
 ];
