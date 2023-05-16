@@ -1,5 +1,8 @@
-module.exports = [{
-  name: 'assessment-after-registration',
+module.exports = [
+
+  // SADR
+  {
+  name: 'sadr-after-registration',
   title: 'First Assessment',
   icon: 'icon-healthcare',
   appliesTo: 'contacts',
@@ -11,4 +14,6 @@ module.exports = [{
     days: 0,
     end: 0,
   }],
-}];
+}
+
+];
