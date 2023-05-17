@@ -1,9 +1,0 @@
-{
-    "icon": "icon-pqhpt",
-    "title": "Poor Quality Medical Products And Health Technologies",
-    "context": {
-        "person": true,
-        "place": false,
-        "expression": "contact.type === 'person'"
-    }
-}

@@ -1,6 +1,6 @@
 {
-    "icon": "icon-aefi",
-    "title": "Adverse Event Following Immunization",
+    "icon": "icon-sadr",
+    "title": "Public Report",
     "context": {
         "person": true,
         "place": false,

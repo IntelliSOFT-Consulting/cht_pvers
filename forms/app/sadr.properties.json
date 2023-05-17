@@ -1,9 +1,0 @@
-{
-    "icon": "icon-sadr",
-    "title": "Suspected Adverse Drug Reaction",
-    "context": {
-        "person": true,
-        "place": false,
-        "expression": "contact.type === 'person'"
-    }
-}
