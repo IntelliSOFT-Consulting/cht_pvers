@@ -12,3 +12,4 @@
 /forms/contact/person-create.xml
 /forms/contact/person-edit.xml
 /.snapshots
+.backup.sh

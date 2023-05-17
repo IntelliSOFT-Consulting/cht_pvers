@@ -6,22 +6,22 @@ const getHouseholdId = (contact) => contact.contact && contact.contact.type === 
 
 module.exports = [
   {
-    id: 'sadr-all-time',
+    id: 'padr-all-time',
     type: 'count',
     icon: 'icon-sadr',
     goal: 15,
-    translation_key: 'targets.sadr.title',
+    translation_key: 'targets.padr.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
     date: 'now'
   },
   {
-    id: 'sadr-this-month',
+    id: 'padr-this-month',
     type: 'count',
     icon: 'icon-sadr',
     goal: 15,
-    translation_key: 'targets.sadr.title',
+    translation_key: 'targets.padr.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
@@ -29,11 +29,11 @@ module.exports = [
   },
   
   {
-    id: 'households-with-sadr-this-month',
+    id: 'households-with-padr-this-month',
     type: 'count',
     icon: 'icon-household',
     goal: 15,
-    translation_key: 'targets.households.with.sadr.title',
+    translation_key: 'targets.households.with.padr.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],

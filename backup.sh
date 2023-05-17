@@ -1,8 +1,9 @@
-cht --url=https://medic:password.@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- sadr
-cht --url=https://medic:password.@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- aefi
-cht --url=https://medic:password.@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- pqhpt
-cht --url=https://medic:password@localhost --accept-self-signed-certs --upload-custom-translations
-cht --url=https://medic:password@localhost --accept-self-signed-certs  compile-app-settings upload-app-settings
+cht --url=https://african:hatua.@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- sadr
+cht --url=https://african:hatua.@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- aefi
+cht --url=https://african:hatua.@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- pqhpt
+cht --url=https://african:hatua@localhost --accept-self-signed-certs --upload-custom-translations
+cht --url=https://african:hatua@localhost --accept-self-signed-certs  compile-app-settings upload-app-settings
+cht --url=https://african:hatua.@localhost --accept-self-signed-certs csv-to-docs upload-docs
 docker cp cht_nginx_1:/etc/nginx/private/key.pem .
 docker cp cht_nginx_1:/etc/nginx/private/cert.pem .
 
