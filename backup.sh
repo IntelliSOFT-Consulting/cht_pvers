@@ -3,7 +3,7 @@ cht --url=https://african:hatua.@localhost --accept-self-signed-certs convert-ap
 cht --url=https://african:hatua.@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- pqhpt
 cht --url=https://african:hatua@localhost --accept-self-signed-certs --upload-custom-translations
 cht --url=https://african:hatua@localhost --accept-self-signed-certs  compile-app-settings upload-app-settings
-cht --url=https://african:hatua.@localhost --accept-self-signed-certs csv-to-docs upload-docs
+cht --url=https://african:hatua.@localhost --accept-self-signed-certs csv-to-docs upload-docs 
 docker cp cht_nginx_1:/etc/nginx/private/key.pem .
 docker cp cht_nginx_1:/etc/nginx/private/cert.pem .
 
