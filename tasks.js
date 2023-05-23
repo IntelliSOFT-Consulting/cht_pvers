@@ -22,16 +22,16 @@ module.exports = [
   {
     name: 'serious-case',
     icon: 'icon-pqhpt',
-    title: 'Serious Case',
+    title: 'Ongoing Adverse Reaction',
     appliesTo: 'reports',
     appliesToType: ['padr'],
-    actions: [{ form: 'padr' }],
+    actions: [{ form: 'follow' }],
     events: [
       {
         id: 'alarm-on-ongoing-reaction',
         days: 7,
-        start: 2,
-        end: 2,
+        start: 7,
+        end: 0,
       }
     ],
     priority: {
@@ -43,7 +43,7 @@ module.exports = [
     resolvedIf: function (contact, report, event, dueDate) {
       return Utils.isFormSubmittedInWindow(
         contact.reports,
-        'padr',
+        'follow',
         Utils.addDate(dueDate, -event.start).getTime(),
         Utils.addDate(dueDate, event.end + 1).getTime()
       );
