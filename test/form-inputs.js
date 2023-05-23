@@ -2,21 +2,24 @@ const { DateTime, Duration } = require('luxon');
 const NOW = DateTime.local();
 
 module.exports = {
-
-  contact: {
-    child: [
-      'Test',
-      'male',
-      'child',
-      NOW.minus(Duration.fromObject({ years: 1 })).toISODate(),
-      
+  padrScenarios: {
+    reaction: [
+      ['Vomiting_or_diarrhea', 'No Other Side Effects', '2023-04-30', 'yes'],
     ],
-    adult: [
-      'Parent Name',
-      'male',
-      'adult',
-      'yes',
-      '2000-01-01', 
-    ], 
-  }
+    medicine: [
+      ['The_label_looks_wrong', 'None'],
+    ]
+  },
+  submissionScenario: {
+    male: (creationDate) => [
+      [creationDate, 'facility', 'no'],
+      [1, 1],
+      ['Test Person', 'male', 'none']
+    ],
+    female: (creationDate) => [
+      [creationDate, 'facility', 'no'],
+      [1, 1],
+      ['Test Person', 'female', 'yes']
+    ]
+  },
 };

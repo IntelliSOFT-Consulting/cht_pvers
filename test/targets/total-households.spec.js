@@ -27,7 +27,7 @@ describe('Target: households-registered-all-time', () => {
 
     const household = await harness.fillContactForm('household',
       [
-        'Hed',
+        'Imeja',
         'male',
         'yes',
         new Date(now.setFullYear(now.getFullYear() - 10)).toISOString().slice(0, 10),

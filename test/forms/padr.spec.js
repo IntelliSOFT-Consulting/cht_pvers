@@ -1,10 +1,10 @@
 const { expect } = require('chai');
 const TestHarness = require('cht-conf-test-harness');
-const { visitVerificationScenarios } = require('../form-inputs');
+const { padrScenarios } = require('../form-inputs');
 const formName = 'padr';
 const harness = new TestHarness();
 
-describe('Visit verification form test', () => {
+describe('PADR form test', () => {
     before(async () => {
         return await harness.start();
     });
@@ -13,52 +13,41 @@ describe('Visit verification form test', () => {
     });
     beforeEach(async () => {
         await harness.clear();
-        // set harnes date to Jan 1st 2019
-        return await harness.setNow('2019-01-01');
+        // set harnes date to Jan 1st 2023
+        return await harness.setNow('2023-01-01');
     });
     afterEach(() => {
         expect(harness.consoleErrors).to.be.empty;
     });
 
-    it('visit verification form can be loaded', async () => {
+    it('padr form can be loaded', async () => {
         await harness.loadForm(`${formName}`);
         expect(harness.state.pageContent).to.include(`${formName}`);
     });
 
-    it('visit verification form can be filled and successfully saved - art', async () => {
-        // Load the visit verification form and fill in
-        const result = await harness.fillForm(formName, ...visitVerificationScenarios.art);
+    it('padr form can be filled and successfully saved - reaction', async () => {
+        // Load the padr form and fill in
+        const result = await harness.fillForm(formName, ...padrScenarios.reaction);
         // Verify that the form successfully got submitted
         expect(result.errors).to.be.empty;
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'group_review.c_next_visit': '01/12/2021'
+            'reaction.group_reaction.on': 'yes'
         });
     });
 
-    it('visit verification form can be filled and successfully saved - diabetes', async () => {
-        // Load the visit verification form and fill in
-        const result = await harness.fillForm(formName, ...visitVerificationScenarios.diabetes);
+    it('padr form can be filled and successfully saved - poor quality medicine', async () => {
+        // Load the padr form and fill in
+        const result = await harness.fillForm(formName, ...padrScenarios.medicine);
         // Verify that the form successfully got submitted
         expect(result.errors).to.be.empty;
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'group_review.c_next_visit': '01/12/2021',
+            'quality.group_quality.signs': 'The_label_looks_wrong',
         });
     });
-
-    it('visit verification form can be filled and successfully saved - chronic lung disease', async () => {
-        // Load the visit verification form and fill in
-        const result = await harness.fillForm(formName, ...visitVerificationScenarios.chronic_lung);
-        // Verify that the form successfully got submitted
-        expect(result.errors).to.be.empty;
-
-        // Verify some attributes on the resulting report
-        expect(result.report.fields).to.nested.include({
-            'group_review.c_next_visit': '01/12/2021',
-        });
-    });
+ 
    
 });

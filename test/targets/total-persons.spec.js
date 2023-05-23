@@ -27,8 +27,7 @@ describe('Target: people-registered-all-time', () => {
     const person = await harness.fillContactForm('person',
       [
         'name',
-        'male',
-        'over_5',
+        'male', 
         'no',
         '15',
         '0',

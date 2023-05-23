@@ -32,7 +32,7 @@ module.exports = [
     context: 'user.contact_type === "chw"',
     goal: -1,
     appliesTo: 'contacts',
-    appliesToType: ['person'],
+    appliesToType: ['persons'],
     appliesIf: (c) => isPatient(c.contact),
     date: 'now',
     aggregate: true
