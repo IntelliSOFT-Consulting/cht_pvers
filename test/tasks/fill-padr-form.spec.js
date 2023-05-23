@@ -16,7 +16,7 @@ describe('Patient Registration Task', function () {
     });
     afterEach(() => expect(harness.consoleErrors).to.be.empty);
 
-    const validateTaskSchedule = async (creationDate) => {
+    const validateSchedule = async (creationDate) => {
         harness.setNow(creationDate.plus({ day: 3 }).toISODate());
         expect(await harness.getTasks({ title: 'Patient Consultation' })).lengthOf(1); 
     };
@@ -27,7 +27,7 @@ describe('Patient Registration Task', function () {
         const result = await harness.fillForm(formName, ...submissionScenario.male(creationDate.toISODate()));
         expect(result.errors).to.be.empty;
 
-        await validateTaskSchedule(creationDate);
+        await validateSchedule(creationDate);
     });
  
    

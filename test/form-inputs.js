@@ -14,12 +14,12 @@ module.exports = {
     male: (creationDate) => [
       [creationDate, 'facility', 'no'],
       [1, 1],
-      ['Test Person', 'male', 'none']
+      ['Test Male Person', 'male', 'none']
     ],
     female: (creationDate) => [
       [creationDate, 'facility', 'no'],
       [1, 1],
-      ['Test Person', 'female', 'yes']
+      ['Test Female Person', 'female', 'yes']
     ]
   },
 };
