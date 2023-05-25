@@ -86,7 +86,7 @@ module.exports = [
   {
     id: 'percentage-contacts-with-adverse-reaction-this-month',
     type: 'percent',
-    icon: 'icon-cough',
+    icon: 'icon-danger-sign',
     goal: -1,
     translation_key: 'targets.padr.percentage.reaction.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
@@ -106,11 +106,11 @@ module.exports = [
   {
     id: 'percentage-contacts-with-adverse-reaction-on-this-month',
     type: 'percent',
-    icon: 'icon-cough',
+    icon: 'icon-reaction-on',
     goal: -1,
     translation_key: 'targets.padr.percentage.reaction.on.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
-    percentage_count_translation_key: 'targets.assessments.percentage.with.cough',
+    percentage_count_translation_key: 'targets.padr.percentage.with.reaction',
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact) {
@@ -126,11 +126,11 @@ module.exports = [
   {
     id: 'percentage-contacts-with-poor-quality-this-month',
     type: 'percent',
-    icon: 'icon-cough',
+    icon: 'icon-risk',
     goal: -1,
     translation_key: 'targets.padr.percentage.quality.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
-    percentage_count_translation_key: 'targets.assessments.percentage.with.cough',
+    percentage_count_translation_key: 'targets.padr.percentage.with.poor.quality',
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact) {

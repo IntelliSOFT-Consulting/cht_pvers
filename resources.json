@@ -32,5 +32,7 @@
     "medic-clinic": "medic-family.svg",
     "medic-district-hospital": "medic-health-center.svg",
     "medic-health-center": "medic-chw-area.svg",
-    "medic-person": "medic-person.svg" 
+    "medic-person": "medic-person.svg" ,
+    "icon-reaction-on": "icon-condition-fever.svg" ,
+    "icon-danger-sign":"icon-ICCM-danger-sign.svg"
 }
