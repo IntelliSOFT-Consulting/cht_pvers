@@ -65,7 +65,7 @@
         </translation>
       </itext>
       <instance>
-        <follow id="followup" prefix="J1!followup!" delimiter="#" version="2023-05-23 07:36:19">
+        <follow id="follow" prefix="J1!follow!" delimiter="#" version="2023-06-05 21:45:55">
           <inputs>
             <meta>
               <location>
@@ -147,7 +147,7 @@
       <bind nodeset="/follow/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/follow/patient_sex" type="string" calculate="../inputs/contact/sex"/>
       <bind nodeset="/follow/reporter/group_report/on" type="select1" required="true()"/>
-      <bind nodeset="/follow/reporter/group_report/stop" type="date" required="true()" jr:constraintMsg="jr:itext('/follow/reporter/group_report/stop:jr:constraintMsg')" constraint=". &lt;= now()" relevant="selected(../on, 'no')"/>
+      <bind nodeset="/follow/reporter/group_report/stop" type="date" relevant="selected(../on, 'no')" required="true()" constraint=". &lt;= now()" jr:constraintMsg="jr:itext('/follow/reporter/group_report/stop:jr:constraintMsg')"/>
       <bind nodeset="/follow/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
       <bind nodeset="/follow/data/meta/__patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
       <bind nodeset="/follow/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
