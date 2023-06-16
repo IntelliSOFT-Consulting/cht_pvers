@@ -1,4 +1,14 @@
 {
+  "languages": [
+    {
+      "locale": "en",
+      "enabled": true
+    }, 
+    {
+      "locale": "sw",
+      "enabled": true
+    }
+  ],
     "locales": [
       {
         "code": "en",
