@@ -1,0 +1,42 @@
+{
+    "urn": "urn:mediator:padr",
+    "version": "1.0.0",
+    "name": "PADR Mediator",
+    "description": "This mediator is responsible for handling PADR forms from CHT.",
+    "defaultChannelConfig": [
+      {
+        "name": "PADR Mediator Channel",
+        "urlPattern": "/padr",
+        "routes": [
+          {
+            "name": "PADR Route",
+            "host": "mediators",
+            "path": "/padr",
+            "port": "3000",
+            "primary": true,
+            "type": "http",
+            "status":"enabled"
+          }
+        ],
+        "allow": [
+          "*"
+        ],
+        "methods": [
+          "GET",
+          "POST",
+          "PUT"
+        ],
+        "type": "http"
+      }
+    ],
+    "endpoints": [
+      {
+        "name": "Patient CRUD Endpoints",
+        "host": "mediators",
+        "path": "/padr",
+        "port": "3000",
+        "primary": true,
+        "type": "http"
+      }
+    ]
+  }

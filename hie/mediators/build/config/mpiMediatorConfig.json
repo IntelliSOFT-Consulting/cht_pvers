@@ -1,0 +1,41 @@
+{
+    "urn": "urn:mediator:mpi_push",
+    "version": "1.0.0",
+    "name": "CBDHS MPI Mediator",
+    "description": "This mediator is responsible for handling MPI bound requests.",
+    "defaultChannelConfig": [
+        {
+            "name": "CBDHS MPI Mediator",
+            "urlPattern": "^/patients$",
+            "routes": [
+                {
+                    "name": "MPI Route",
+                    "host": "mediators",
+                    "path": "/",
+                    "port": "8082",
+                    "primary": true,
+                    "type": "http"
+                }
+            ],
+            "allow": [
+                "*"
+            ],
+            "methods": [
+                "GET",
+                "POST",
+                "PUT"
+            ],
+            "type": "http"
+        }
+    ],
+    "endpoints": [
+        {
+            "name": "Patient Endpoints",
+            "host": "mediators",
+            "path": "/",
+            "port": "8082",
+            "primary": true,
+            "type": "http"
+        }
+    ]
+}

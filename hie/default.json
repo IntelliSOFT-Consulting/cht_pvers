@@ -1,0 +1,13 @@
+{
+    "version": "1.10.0",
+    "minimumCoreVersion": "3.4.0",
+    "protocol": "https",
+    "host": "127.0.0.1",
+    "port": 8080,
+    "title": "Admin Console",
+    "footerTitle": "CBDHS HIE Admin Console",
+    "footerPoweredBy": "<a href='http://openhim.org/' target='_blank'>LHSS CBDHS HIE</a>",
+    "loginBanner": "",
+    "mediatorLastHeartbeatWarningSeconds": 60,
+    "mediatorLastHeartbeatDangerSeconds": 120
+  }

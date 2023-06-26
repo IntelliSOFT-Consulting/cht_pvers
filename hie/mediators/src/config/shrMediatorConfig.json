@@ -1,0 +1,35 @@
+{
+  "urn": "urn:mediator:shr",
+  "version": "1.0.0",
+  "name": "SHR Mediator",
+  "description": "This mediator is responsible for handling SHR bound requests.",
+  "defaultChannelConfig": [
+    {
+      "name": "SHR Channel",
+      "urlPattern": "^/shr/.*$",
+      "routes": [
+        {
+          "name": "SHR Route",
+          "host": "mediators",
+          "pathTransform": "s/\/\/.*$/",
+          "port": "3000",
+          "primary": true,
+          "type": "http"
+        }
+      ],
+      "allow": ["*"],
+      "methods": ["GET", "POST"],
+      "type": "http"
+    }
+  ],
+  "endpoints": [
+    {
+      "name": "SHR Mediator Endpoint",
+      "host": "mediators",
+      "path": "/shr",
+      "port": "3000",
+      "primary": true,
+      "type": "http"
+    }
+  ]
+}

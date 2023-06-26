@@ -1,0 +1,42 @@
+{
+  "urn": "urn:mediator:mpi_push",
+  "version": "1.0.0",
+  "name": "MPI Mediator",
+  "description": "This mediator is responsible for handling MPI bound requests.",
+  "defaultChannelConfig": [
+    {
+      "name": "MPI Mediator Channel",
+      "urlPattern": "/Patient",
+      "routes": [
+        {
+          "name": "MPI Route",
+          "host": "mediators",
+          "path": "/Patient",
+          "port": "3000",
+          "primary": true,
+          "type": "http",
+          "status":"enabled"
+        }
+      ],
+      "allow": [
+        "*"
+      ],
+      "methods": [
+        "GET",
+        "POST",
+        "PUT"
+      ],
+      "type": "http"
+    }
+  ],
+  "endpoints": [
+    {
+      "name": "Patient CRUD Endpoints",
+      "host": "mediators",
+      "path": "/Patient",
+      "port": "3000",
+      "primary": true,
+      "type": "http"
+    }
+  ]
+}
