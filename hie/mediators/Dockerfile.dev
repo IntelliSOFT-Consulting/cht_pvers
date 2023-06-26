@@ -1,0 +1,10 @@
+FROM node:alpine
+WORKDIR /usr/mediators/
+
+COPY package.json .
+RUN npm install typescript yarn -g --force
+COPY . .
+
+EXPOSE 3000
+# CMD ["node", "./build/index.js"]
+CMD ["yarn", "dev"]

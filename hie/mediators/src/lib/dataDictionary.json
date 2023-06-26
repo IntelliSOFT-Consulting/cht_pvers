@@ -1,0 +1,37 @@
+{
+    "restricted": {
+        "deceased": [
+            "No",
+            "Yes"
+        ],
+        "sex": [
+            "Male",
+            "Female"
+        ],
+        "maritalStatus": [
+            "Married Polygamous",
+            "Married Monogomous",
+            "Divorced",
+            "Widowed",
+            "Cohabitating",
+            "Single"
+        ],
+        "education": [
+            "Primary School",
+            "None",
+            "Primary School Education",
+            "Secondary School Education",
+            "College, University or Polytechnic"
+        ],
+        "occupation": [
+            "Student"
+        ],
+        "nextOfKinRelationship": [
+            "Spouse"
+        ],
+        "country": [
+            "Uganda",
+            "Kenya"
+        ]
+    }
+}
