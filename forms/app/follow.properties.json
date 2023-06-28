@@ -1,0 +1,9 @@
+{
+    "icon": "icon-up",
+    "title": "Follow Up Report",
+    "context": {
+        "person": false,
+        "place": false,
+        "expression": "contact.type === 'person'"
+    }
+}
