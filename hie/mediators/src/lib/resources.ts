@@ -1,7 +1,7 @@
 // To Do: 
 //     1. Add support for multiple systems 
 
-import { FhirApi, getPatientByCrossBorderId } from "./utils";
+import { FhirApi } from "./utils";
 
 
 export const _supportedResources = ['Observation', 'Medication', 'AllergyIntolerance', 'Immunization', 'Condition']
@@ -65,24 +65,6 @@ export const generateCode = (system: string, code: string, display: string) => {
     return { system, code, display }
 }
 
-export const generateReferenceFromCrossBorderId = async (crossBorderId: string) => {
-    try {
-        let patient = await getPatientByCrossBorderId(crossBorderId);
-        if (!patient) {
-            return null;
-        }
-        patient = parseFhirPatient(patient);
-        return {
-            "reference": `Patient/${patient.id}`,
-            "display": `${patient.surname}, ${patient.otherNames}`
-        }
-
-    } catch (error) {
-        console.log(error);
-        return null;
-    }
-
-}
 
 export const generatePatientReference = async (resource: string, id: string) => {
     try {
