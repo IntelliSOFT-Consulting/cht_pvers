@@ -10,6 +10,8 @@ elif [ "$1" == "publish" ]; then
   cd cht_app && cht --url=https://medic:password@localhost --accept-self-signed-certs compile-app-settings upload-app-settings && cht --url=https://medic:password@localhost --accept-self-signed-certs
 elif [ "$1" == "down" ]; then
   docker compose -p cht_pvers_hie -f ./hie/docker-compose.yml -f ./hie/docker-compose-dev.yml -f ./hie/docker-compose.cht-core.yml -f ./hie/docker-compose.cht-couchdb.yml down
+elif [ "$1" == "destroy" ]; then
+  docker compose -p cht_pvers_hie -f ./hie/docker-compose.yml -f ./hie/docker-compose-dev.yml -f ./hie/docker-compose.cht-core.yml -f ./hie/docker-compose.cht-couchdb.yml down --volumes
 elif [ "$1" == "setup-creds" ]; then
   curl -X PUT -H "Content-Type: text/plain" https://medic:password@localhost/api/v1/credentials/openhim -d 'password' --insecure
 elif [ "$1" == "logs" ]; then
@@ -23,6 +25,7 @@ else
   dev           starts the docker containers in development mode
   publish       packages and publish the CHT app to CHT Instance.
   down          stop all services
+  destroy       stop all services and delete Docker volumes
   setup-creds   create OpenHIM credentials on CHT Instance.
   logs          view mediator logs (append service name to specify service)
   "
