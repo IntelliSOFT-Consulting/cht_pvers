@@ -2,7 +2,7 @@
   "version": "1.10.0",
   "minimumCoreVersion": "3.4.0",
   "protocol": "https",
-  "host": "cht.intellisoftkenya.com",
+  "host": "127.0.0.1",
   "port": 8080,
   "title": "Admin Console",
   "footerTitle": "CHT PVERS HIE Admin Console",
