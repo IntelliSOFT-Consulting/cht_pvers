@@ -1,13 +1,19 @@
 {
-  "version": "1.10.0",
-  "minimumCoreVersion": "3.4.0",
+  "version": "1.18.2",
+  "minimumCoreVersion": "5.2.0",
   "protocol": "https",
   "host": "cht.intellisoftkenya.com",
-  "port": 8080,
+  "hostPath": "",
+  "port": "8080",
   "title": "Admin Console",
-  "footerTitle": "CHT PVERS HIE Admin Console",
-  "footerPoweredBy": "<a href='http://openhim.org/' target='_blank'>CHT PVERS HIE</a>",
+  "footerTitle": "OpenHIM Administration Console",
+  "footerPoweredBy": "<a href='http://openhim.org/' target='_blank'>Powered by OpenHIM</a>",
   "loginBanner": "",
   "mediatorLastHeartbeatWarningSeconds": 60,
-  "mediatorLastHeartbeatDangerSeconds": 120
+  "mediatorLastHeartbeatDangerSeconds": 120,
+  "showLoginForm": true,
+  "ssoEnabled": false,
+  "keyCloakUrl": "http://localhost:9088",
+  "keyCloakRealm": "platform-realm",
+  "keyCloakClientId": "openhim-oauth"
 }

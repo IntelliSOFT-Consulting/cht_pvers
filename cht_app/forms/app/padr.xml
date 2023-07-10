@@ -715,7 +715,7 @@
       <bind nodeset="/padr/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/padr/patient_sex" type="string" calculate="../inputs/contact/sex"/>
       <bind nodeset="/padr/reporter/group_report/person_name" type="string" required="true()"/>
-      <bind nodeset="/padr/reporter/group_report/person_phone" type="tel" constraint="true()" required="true()" jr:constraintMsg="jr:itext('/padr/reporter/group_report/person_phone:jr:constraintMsg')"/>
+      <bind nodeset="/padr/reporter/group_report/person_phone" type="tel" jr:constraintMsg="jr:itext('/padr/reporter/group_report/person_phone:jr:constraintMsg')" constraint="true()" required="true()"/>
       <bind nodeset="/padr/reporter/group_report/relation" type="select1" required="true()"/>
       <bind nodeset="/padr/reporter/group_report/county" type="select1" required="true()"/>
       <bind nodeset="/padr/reporter/group_report/type" type="select1" required="true()"/>
@@ -725,16 +725,16 @@
       <bind nodeset="/padr/reaction" relevant="selected(../reporter/group_report/type, 'reaction')"/>
       <bind nodeset="/padr/reaction/group_reaction/effects" type="select" required="true()"/>
       <bind nodeset="/padr/reaction/group_reaction/other_effects" type="string"/>
-      <bind nodeset="/padr/reaction/group_reaction/onset" type="date" constraint=". &lt;= now()" required="true()" jr:constraintMsg="jr:itext('/padr/reaction/group_reaction/onset:jr:constraintMsg')"/>
+      <bind nodeset="/padr/reaction/group_reaction/onset" type="date" jr:constraintMsg="jr:itext('/padr/reaction/group_reaction/onset:jr:constraintMsg')" constraint=". &lt;= now()" required="true()"/>
       <bind nodeset="/padr/reaction/group_reaction/on" type="select1"/>
       <bind nodeset="/padr/medicines/medications/list_medication" readonly="true()" type="string"/>
-      <bind nodeset="/padr/medicines/medications/medicine_count" type="int" constraint=".&gt;=1 and . &lt;= 9" required="true()" jr:constraintMsg="jr:itext('/padr/medicines/medications/medicine_count:jr:constraintMsg')"/>
+      <bind nodeset="/padr/medicines/medications/medicine_count" type="int" jr:constraintMsg="jr:itext('/padr/medicines/medications/medicine_count:jr:constraintMsg')" constraint=".&gt;=1 and . &lt;= 9" required="true()"/>
       <bind nodeset="/padr/medicines/medications/name" type="string" relevant=" /padr/medicines/medications/medicine_count  = 1" required="true()"/>
       <bind nodeset="/padr/medicines/medications/manufacturer" type="string" relevant=" /padr/medicines/medications/medicine_count  = 1" required="true()"/>
       <bind nodeset="/padr/medicines/medications/location" type="string" relevant=" /padr/medicines/medications/medicine_count  = 1" required="true()"/>
-      <bind nodeset="/padr/medicines/medications/start_date" type="date" constraint=". &lt;= today() and ( /padr/reaction/group_reaction/onset  = '' or . &lt;=  /padr/reaction/group_reaction/onset )" required="true()" jr:constraintMsg="jr:itext('/padr/medicines/medications/start_date:jr:constraintMsg')" relevant=" /padr/medicines/medications/medicine_count  = 1"/>
-      <bind nodeset="/padr/medicines/medications/stop_date" type="date" constraint=". &lt;= today() and ( /padr/medicines/medications/start_date  = '' or . &gt;=  /padr/medicines/medications/start_date )" required="true()" jr:constraintMsg="jr:itext('/padr/medicines/medications/stop_date:jr:constraintMsg')" relevant=" /padr/medicines/medications/medicine_count  = 1"/>
-      <bind nodeset="/padr/medicines/medications/expiry_date" type="date" relevant=" /padr/medicines/medications/medicine_count  = 1" required="true()" jr:constraintMsg="jr:itext('/padr/medicines/medications/expiry_date:jr:constraintMsg')"/>
+      <bind nodeset="/padr/medicines/medications/start_date" type="date" jr:constraintMsg="jr:itext('/padr/medicines/medications/start_date:jr:constraintMsg')" relevant=" /padr/medicines/medications/medicine_count  = 1" constraint=". &lt;= today() and ( /padr/reaction/group_reaction/onset  = '' or . &lt;=  /padr/reaction/group_reaction/onset )" required="true()"/>
+      <bind nodeset="/padr/medicines/medications/stop_date" type="date" jr:constraintMsg="jr:itext('/padr/medicines/medications/stop_date:jr:constraintMsg')" relevant=" /padr/medicines/medications/medicine_count  = 1" constraint=". &lt;= today() and ( /padr/medicines/medications/start_date  = '' or . &gt;=  /padr/medicines/medications/start_date )" required="true()"/>
+      <bind nodeset="/padr/medicines/medications/expiry_date" type="date" jr:constraintMsg="jr:itext('/padr/medicines/medications/expiry_date:jr:constraintMsg')" required="true()" relevant=" /padr/medicines/medications/medicine_count  = 1"/>
       <bind nodeset="/padr/medicines/medications/medicine_count_multiple" readonly="true()" type="string" relevant=" /padr/medicines/medications/medicine_count  &gt; 1"/>
       <bind nodeset="/padr/medicines/medications/medicines_used" readonly="true()" type="string" relevant=" /padr/medicines/medications/medicine_count  &gt; 1"/>
       <bind nodeset="/padr/medicines/medications/medication_multiple_count" type="string" readonly="true()" calculate=" /padr/medicines/medications/medicine_count "/>
@@ -742,12 +742,12 @@
       <bind nodeset="/padr/medicines/medications/medication_multiple/name_multiple" type="string" relevant=" /padr/medicines/medications/medicine_count  &gt; 1" required="true()"/>
       <bind nodeset="/padr/medicines/medications/medication_multiple/manufactuter_multiple" type="string" relevant=" /padr/medicines/medications/medicine_count  &gt; 1" required="true()"/>
       <bind nodeset="/padr/medicines/medications/medication_multiple/location_multiple" type="string" relevant=" /padr/medicines/medications/medicine_count  &gt; 1" required="true()"/>
-      <bind nodeset="/padr/medicines/medications/medication_multiple/start_date_multiple" type="date" constraint=". &lt;= now()" required="true()" jr:constraintMsg="jr:itext('/padr/medicines/medications/medication_multiple/start_date_multiple:jr:constraintMsg')" relevant=" /padr/medicines/medications/medicine_count  &gt; 1"/>
-      <bind nodeset="/padr/medicines/medications/medication_multiple/stop_date_multiple" type="date" constraint=". &lt;= now()" required="true()" jr:constraintMsg="jr:itext('/padr/medicines/medications/medication_multiple/stop_date_multiple:jr:constraintMsg')" relevant=" /padr/medicines/medications/medicine_count  &gt; 1"/>
-      <bind nodeset="/padr/medicines/medications/medication_multiple/expiry_date_multiple" type="date" relevant=" /padr/medicines/medications/medicine_count  &gt; 1" required="true()" jr:constraintMsg="jr:itext('/padr/medicines/medications/medication_multiple/expiry_date_multiple:jr:constraintMsg')"/>
+      <bind nodeset="/padr/medicines/medications/medication_multiple/start_date_multiple" type="date" jr:constraintMsg="jr:itext('/padr/medicines/medications/medication_multiple/start_date_multiple:jr:constraintMsg')" relevant=" /padr/medicines/medications/medicine_count  &gt; 1" constraint=". &lt;= now()" required="true()"/>
+      <bind nodeset="/padr/medicines/medications/medication_multiple/stop_date_multiple" type="date" jr:constraintMsg="jr:itext('/padr/medicines/medications/medication_multiple/stop_date_multiple:jr:constraintMsg')" relevant=" /padr/medicines/medications/medicine_count  &gt; 1" constraint=". &lt;= now()" required="true()"/>
+      <bind nodeset="/padr/medicines/medications/medication_multiple/expiry_date_multiple" type="date" jr:constraintMsg="jr:itext('/padr/medicines/medications/medication_multiple/expiry_date_multiple:jr:constraintMsg')" required="true()" relevant=" /padr/medicines/medications/medicine_count  &gt; 1"/>
       <bind nodeset="/padr/outcome_details/group_outcome_details/outcome" type="select1" required="true()"/>
       <bind nodeset="/padr/outcome_details/group_outcome_details/attach" type="select1"/>
-      <bind nodeset="/padr/outcome_details/group_outcome_details/attachment_count" type="int" constraint=".&gt;=1 and . &lt;= 9" required="true()" jr:constraintMsg="jr:itext('/padr/outcome_details/group_outcome_details/attachment_count:jr:constraintMsg')" relevant="selected(../attach, 'yes')"/>
+      <bind nodeset="/padr/outcome_details/group_outcome_details/attachment_count" type="int" jr:constraintMsg="jr:itext('/padr/outcome_details/group_outcome_details/attachment_count:jr:constraintMsg')" relevant="selected(../attach, 'yes')" constraint=".&gt;=1 and . &lt;= 9" required="true()"/>
       <bind nodeset="/padr/outcome_details/group_outcome_details/attachment" type="binary" relevant=" /padr/outcome_details/group_outcome_details/attachment_count  =1" required="true()"/>
       <bind nodeset="/padr/outcome_details/group_outcome_details/attachment_description" type="string" relevant=" /padr/outcome_details/group_outcome_details/attachment_count  =1"/>
       <bind nodeset="/padr/outcome_details/group_outcome_details/attachment_count_multiple" readonly="true()" type="string" relevant=" /padr/outcome_details/group_outcome_details/attachment_count  &gt; 1"/>
