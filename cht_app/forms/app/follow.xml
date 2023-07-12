@@ -147,7 +147,7 @@
       <bind nodeset="/follow/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/follow/patient_sex" type="string" calculate="../inputs/contact/sex"/>
       <bind nodeset="/follow/reporter/group_report/on" type="select1" required="true()"/>
-      <bind nodeset="/follow/reporter/group_report/stop" type="date" required="true()" relevant="selected(../on, 'no')" constraint=". &lt;= now()" jr:constraintMsg="jr:itext('/follow/reporter/group_report/stop:jr:constraintMsg')"/>
+      <bind nodeset="/follow/reporter/group_report/stop" type="date" required="true()" constraint=". &lt;= now()" relevant="selected(../on, 'no')" jr:constraintMsg="jr:itext('/follow/reporter/group_report/stop:jr:constraintMsg')"/>
       <bind nodeset="/follow/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
       <bind nodeset="/follow/data/meta/__patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
       <bind nodeset="/follow/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
