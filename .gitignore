@@ -15,6 +15,7 @@
 /forms/contact/person-edit.xml
 /.snapshots
 /backup.sh
+setup.sh
 
 
 # Logs
