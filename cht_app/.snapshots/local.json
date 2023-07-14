@@ -1,33 +1,33 @@
 {
   "form:follow": {
-    "localhost/medic": "qJUAXg3mzwYCtMu5kdEl4w=="
+    "localhost/medic": "1oIR8ROU4MT+yVYLi3quEA=="
   },
   "form:padr": {
-    "localhost/medic": "HggvoulEpvW29Ydj31W7rA=="
+    "localhost/medic": "HW8H3WlmhURHnY9xiFOVqQ=="
   },
   "form:contact:clinic:create": {
-    "localhost/medic": "zNjjfOHXVK9CmLpdX+ROTg=="
+    "localhost/medic": "So6X8iRv+Dw6hdinKZDbWw=="
   },
   "form:contact:clinic:edit": {
-    "localhost/medic": "a7g5hrYXRgocn3RzD18iPA=="
+    "localhost/medic": "I8MHPqrhMqX1gUYJEInusQ=="
   },
   "form:contact:district_hospital:create": {
-    "localhost/medic": "Mx7QmpOxE8yYrFLViunkCw=="
+    "localhost/medic": "6XbcM/wsOBSQef2TOxHZpQ=="
   },
   "form:contact:district_hospital:edit": {
-    "localhost/medic": "SIl9GMDjSQc1riBxpevb0g=="
+    "localhost/medic": "mc4CHvVqKD3oJxjGJ1iOkg=="
   },
   "form:contact:health_center:create": {
-    "localhost/medic": "SYG5U4UG/SCculROCtBEKA=="
+    "localhost/medic": "8Qra/6v6hB/yWjrUMH8K8Q=="
   },
   "form:contact:health_center:edit": {
-    "localhost/medic": "E7VY14gxh766YKDhXPOlqQ=="
+    "localhost/medic": "jnJbGT9RyBqa7QGVUnRbag=="
   },
   "form:contact:person:create": {
-    "localhost/medic": "hF6j+7ahgyjG07Zdi0TTCA=="
+    "localhost/medic": "mqx/LUf0lwv6rPzZLh6z8Q=="
   },
   "form:contact:person:edit": {
-    "localhost/medic": "YNpIWwesLZMBtS/urSep3Q=="
+    "localhost/medic": "D0ikkb9P4bYne6wl89SbjA=="
   },
   "resources": {
     "localhost/medic": "BqaZ1E+8s0kpt3I8zgoRYA=="
@@ -36,9 +36,12 @@
     "localhost/medic": "WAoNEioN1cxMkIM+YxvI6A=="
   },
   "messages-en": {
-    "localhost/medic": "CEMz/oztKVYqXlrUKMRzCQ=="
+    "localhost/medic": "nAz/tQvYKhymEnKSqfZ5xg=="
   },
   "privacy-policies": {
     "localhost/medic": "/twR+Q8i4pmWKN/3fUP6tQ=="
+  },
+  "form:assessment": {
+    "localhost/medic": "8Crcyqvv9M42NC9PgJJQ/Q=="
   }
 }
