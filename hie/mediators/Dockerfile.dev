@@ -4,6 +4,7 @@ WORKDIR /usr/mediators/
 COPY package.json .
 RUN npm install typescript yarn -g --force
 COPY . .
+RUN yarn
 
 EXPOSE 3000
 # CMD ["node", "./build/index.js"]
