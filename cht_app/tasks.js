@@ -1,13 +1,43 @@
 
 module.exports = [
-  // Create a Task when a new contact is created
+  
+  /*
+  Create a Task when a new contact is created
+  NOTE: Only show if the current user is a CHW  
+  */
   {
-    name: 'padr-after-registration',
+    name: 'assessment-after-registration',
     icon: 'icon-healthcare',
     title: 'CHW Consultation',
     appliesTo: 'contacts',
-    appliesToType: ['person'],
-    // appliesIf: c => c.contact_type === 'patient',
+    appliesToType: ['person'],  
+    actions: [{ form: 'assessment' }],
+    events: [
+      {
+        id: 'assessment-form',
+        days: 7,
+        start: 7,
+        end: 2,
+      }
+    ],
+    resolvedIf: function (contact, report, event, dueDate) {
+      return Utils.isFormSubmittedInWindow(
+        contact.reports,
+        'assessment',
+        Utils.addDate(dueDate, -event.start).getTime(),
+        Utils.addDate(dueDate, event.end + 1).getTime()
+      );
+    }
+  },
+  /*Create a Task when chw submits an assessment form
+  NOTE: Only the supervisor should get this task
+  */
+  {
+    name: 'padr-after-assessment',
+    icon: 'icon-healthcare',
+    title: 'Household Visit',
+    appliesTo: 'reports',
+    appliesToType: ['assessment'], 
     actions: [{ form: 'padr' }],
     events: [
       {
@@ -17,9 +47,21 @@ module.exports = [
         end: 2,
       }
     ],
+    resolvedIf: function (contact, report, event, dueDate) {
+      return Utils.isFormSubmittedInWindow(
+        contact.reports,
+        'padr',
+        Utils.addDate(dueDate, -event.start).getTime(),
+        Utils.addDate(dueDate, event.end + 1).getTime()
+      );
+    }
+    
   },
 
-  // Create a Task when a report is submitted with ongoing reaction
+  /*
+  Create a Task when a report is submitted with ongoing reaction
+  NOTE: Supervisor should get this for follow up
+  */
   {
     name: 'serious-case',
     icon: 'icon-followup',

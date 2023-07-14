@@ -2,7 +2,7 @@
   "version": "1.18.2",
   "minimumCoreVersion": "5.2.0",
   "protocol": "https",
-  "host": "cht.intellisoftkenya.com",
+  "host": "localhost",
   "hostPath": "",
   "port": "8080",
   "title": "Admin Console",
