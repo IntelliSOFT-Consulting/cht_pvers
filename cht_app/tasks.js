@@ -1,16 +1,18 @@
 
 module.exports = [
-  
-  /*
+
+ /*
   Create a Task when a new contact is created
   NOTE: Only show if the current user is a CHW  
   */
+
   {
     name: 'assessment-after-registration',
     icon: 'icon-healthcare',
     title: 'CHW Consultation',
     appliesTo: 'contacts',
-    appliesToType: ['person'],  
+    appliesToType: ['person'],
+    appliesIf: c => c.contact.role === 'patient', /*Todo: add check for CHW*/
     actions: [{ form: 'assessment' }],
     events: [
       {
@@ -28,6 +30,7 @@ module.exports = [
         Utils.addDate(dueDate, event.end + 1).getTime()
       );
     }
+
   },
   /*Create a Task when chw submits an assessment form
   NOTE: Only the supervisor should get this task
@@ -37,7 +40,7 @@ module.exports = [
     icon: 'icon-healthcare',
     title: 'Household Visit',
     appliesTo: 'reports',
-    appliesToType: ['assessment'], 
+    appliesToType: ['assessment'],
     actions: [{ form: 'padr' }],
     events: [
       {
@@ -47,6 +50,9 @@ module.exports = [
         end: 2,
       }
     ],
+    appliesIf: function (contact, report) {
+      return Utils.getField(report, 'reporter.group_report.reaction') === 'yes' || Utils.getField(report, 'reporter.group_report.quality') === 'yes';
+    },
     resolvedIf: function (contact, report, event, dueDate) {
       return Utils.isFormSubmittedInWindow(
         contact.reports,
@@ -55,7 +61,7 @@ module.exports = [
         Utils.addDate(dueDate, event.end + 1).getTime()
       );
     }
-    
+
   },
 
   /*
