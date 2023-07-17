@@ -143,4 +143,114 @@ module.exports = [
     date: 'reported'
   },
 
+  // Follow Up Assessments Completed
+  {
+    id: 'follow-up-assessments-completed',
+    translation_key: 'follow.up.assessments.completed.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-up',
+    goal: -1,
+    appliesTo: 'contacts', 
+    appliesToType: ['household'],
+    appliesIf: c => isPatient(c.contact),
+    date: 'now',
+  },
+
+  // Referrals Completed
+
+  {
+    id: 'completed-referrals',
+    translation_key: 'completed.referrals.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-assessment',
+    goal: -1,
+    appliesTo: 'reports',
+    appliesToType: ['padr'],
+    appliesIf: function (contact, report) {      
+      return Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'not_recovered/not_resolved' || Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'unknown';
+    }, 
+    date: 'now',
+  },
+  // Adverse Drug Reactions Identified
+  {
+    id: 'adverse-drug-reactions-identified',
+    translation_key: 'adverse.drug.reactions.identified.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-reactions',
+    goal: -1,
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    appliesIf: function (contact, report) {      
+      return (Utils.getField(report, 'reporter.group_report.medication') === 'yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'yes');
+    }, 
+    date: 'now',
+  },
+   // Adverse Reactions reported following Immunization/Vaccination
+   {
+    id: 'adverse-drug-reactions-following-immunization',
+    translation_key: 'adverse.drug.reactions.following.immunization.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-reactions',
+    goal: -1,
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    appliesIf: function (contact, report) {       
+      return (Utils.getField(report, 'reporter.group_report.immunization') === 'yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'yes');
+    }, 
+    date: 'now',
+  },
+
+  // Poor Quality Medicine Reported
+
+  {
+    id: 'poor-quality-medicine-reported',
+    translation_key: 'poor.quality.medicine.reported.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-sadr',
+    goal: -1,
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    appliesIf: function (contact, report) {       
+      return (Utils.getField(report, 'reporter.group_report.medicine') === 'yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'yes');
+    }, 
+    date: 'now',
+  },
+
+  // Total number of deaths reported
+  {
+    id: 'total-number-of-deaths-reported',
+    translation_key: 'total.number.of.deaths.reported.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-death-coffin',
+    goal: -1, 
+    appliesTo: 'reports',
+    appliesToType: ['death_confirmation'],
+    appliesIf: function (contact, report) {      
+      return Utils.getField(report, 'reporter.group_report.died') === 'yes';
+    }, 
+    date: 'now',
+  },
+
+  // Total number of recoveries reported
+  {
+    id: 'total-number-of-recoveries-reported',
+    translation_key: 'total.number.of.recoveries.reported.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-referral',
+    goal: -1,
+    appliesTo: 'reports',
+    appliesToType: ['padr'],
+    appliesIf: function (contact, report) {      
+      return Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'recovered/resolved';
+    }, 
+    date: 'now',
+  },
+
 ];

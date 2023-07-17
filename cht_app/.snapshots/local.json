@@ -1,47 +1,50 @@
 {
   "form:follow": {
-    "localhost/medic": "fSzh3K0ZGJFbUO9MMdfYkQ=="
+    "localhost/medic": "QFdTqmJ20GSoWrEJFeomEw=="
   },
   "form:padr": {
-    "localhost/medic": "SJ5dYNIyFiXeD4HxWx7qfw=="
+    "localhost/medic": "QqPp7pXv1XtVXTV4S52ohA=="
   },
   "form:contact:clinic:create": {
-    "localhost/medic": "SGze8shxCgFZiGEfk8dBlg=="
+    "localhost/medic": "Etfy8cVDxonUUz2I6m6TSA=="
   },
   "form:contact:clinic:edit": {
-    "localhost/medic": "3lUZPDATfsKPHBdJPHgwWQ=="
+    "localhost/medic": "H9q8te43JSgiqpbtslTCzA=="
   },
   "form:contact:district_hospital:create": {
-    "localhost/medic": "mGzlGSB+HXCU5Dfd+ISG4A=="
+    "localhost/medic": "RVcllHdgrOmeeWn0GioKtQ=="
   },
   "form:contact:district_hospital:edit": {
-    "localhost/medic": "hcMLVBjyxNJg5M0oCbXaUA=="
+    "localhost/medic": "YMi3ZYKEnD9DO6O/AaZlXQ=="
   },
   "form:contact:health_center:create": {
-    "localhost/medic": "7/lndfizqc0ARN7p0ZybSA=="
+    "localhost/medic": "Sa8iM1p80sZAQncHBHyBWw=="
   },
   "form:contact:health_center:edit": {
-    "localhost/medic": "fMDPavKJmkU0XCF23z9+/Q=="
+    "localhost/medic": "nefl5OqyJeEv5GxCGyJKzA=="
   },
   "form:contact:person:create": {
-    "localhost/medic": "QE/UQ1HEpmRlGaFZdIMaeQ=="
+    "localhost/medic": "U/W224f3FU4hJNqFYk533Q=="
   },
   "form:contact:person:edit": {
-    "localhost/medic": "FBSk1jeY+iL/nLmrgrjPmw=="
+    "localhost/medic": "hknWAdaBst7feBN71p8CAw=="
   },
   "resources": {
-    "localhost/medic": "BqaZ1E+8s0kpt3I8zgoRYA=="
+    "localhost/medic": "ViTyIHLpxYElx+nWD1tFZg=="
   },
   "branding": {
     "localhost/medic": "WAoNEioN1cxMkIM+YxvI6A=="
   },
   "messages-en": {
-    "localhost/medic": "nAz/tQvYKhymEnKSqfZ5xg=="
+    "localhost/medic": "/7OetMbiMd8pg18eNO9ALA=="
   },
   "privacy-policies": {
     "localhost/medic": "/twR+Q8i4pmWKN/3fUP6tQ=="
   },
   "form:assessment": {
-    "localhost/medic": "8Crcyqvv9M42NC9PgJJQ/Q=="
+    "localhost/medic": "6GfdhLZ/fQXsP6EXbUkcAA=="
+  },
+  "form:death_confirmation": {
+    "localhost/medic": "UwSQ5Y7D4rUbxzCjUhEIzg=="
   }
 }

@@ -1003,7 +1003,7 @@ DOB ISO: <output value=" /data/contact/ephemeral_dob/dob_iso "/></value></text>
       <bind nodeset="/data/init/select_person" type="db:person" required="true()" relevant="selected( /data/init/create_new_person ,'old_person')"/>
       <bind nodeset="/data/init/name" type="string"/>
       <bind nodeset="/data/init/contact_name" type="string" calculate="coalesce(../../contact/name, ../name)"/>
-      <bind nodeset="/data/init/custom_place_name_label_translator" type="select1" relevant="selected( /data/init/create_new_person ,'none') or selected( /data/health_center/is_name_generated , 'false')" calculate="&quot;name&quot;"/>
+      <bind nodeset="/data/init/custom_place_name_label_translator" type="select1" calculate="&quot;name&quot;" relevant="selected( /data/init/create_new_person ,'none') or selected( /data/health_center/is_name_generated , 'false')"/>
       <bind nodeset="/data/init/custom_place_name_label" type="string" calculate="jr:choice-name( /data/init/custom_place_name_label_translator ,' /data/init/custom_place_name_label_translator ')"/>
       <bind nodeset="/data/init/custom_place_name" type="string" required="true()" relevant="selected( /data/init/create_new_person ,'none') or selected( /data/health_center/is_name_generated , 'false')"/>
       <bind nodeset="/data/init/place_type" type="select1"/>
