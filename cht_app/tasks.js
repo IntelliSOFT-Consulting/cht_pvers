@@ -1,10 +1,10 @@
 
 module.exports = [
 
- /*
-  Create a Task when a new contact is created
-  NOTE: Only show if the current user is a CHW  
-  */
+  /*
+   Create a Task when a new contact is created
+   NOTE: Only show if the current user is a CHW  
+   */
 
   {
     name: 'assessment-after-registration',
@@ -12,7 +12,7 @@ module.exports = [
     title: 'CHW Consultation',
     appliesTo: 'contacts',
     appliesToType: ['person'],
-    appliesIf: c => c.contact.role === 'patient', /*Todo: add check for CHW*/
+    appliesIf: c => c.contact.role === 'patient' && user.role === 'chw', /*Todo: add check for CHW*/
     actions: [{ form: 'assessment' }],
     events: [
       {
@@ -51,7 +51,7 @@ module.exports = [
       }
     ],
     appliesIf: function (contact, report) {
-      return Utils.getField(report, 'reporter.group_report.reaction') === 'yes' || Utils.getField(report, 'reporter.group_report.quality') === 'yes';
+      return (Utils.getField(report, 'reporter.group_report.reaction') === 'yes' && user.role === 'chw_supervisor') || (Utils.getField(report, 'reporter.group_report.quality') === 'yes' && user.role === 'chw_supervisor');
     },
     resolvedIf: function (contact, report, event, dueDate) {
       return Utils.isFormSubmittedInWindow(
