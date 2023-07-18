@@ -197,7 +197,7 @@
       <bind nodeset="/assessment/reporter/group_report/sadr_title" readonly="true()" type="string"/>
       <bind nodeset="/assessment/reporter/group_report/medication" type="select1" required="true()"/>
       <bind nodeset="/assessment/reporter/group_report/immunization" type="select1" required="true()"/>
-      <bind nodeset="/assessment/reporter/group_report/reaction" type="select1" relevant="selected( /assessment/reporter/group_report/medication ,'yes') or selected( /assessment/reporter/group_report/immunization , 'yes')" required="true()"/>
+      <bind nodeset="/assessment/reporter/group_report/reaction" type="select1" required="true()" relevant="selected( /assessment/reporter/group_report/medication ,'yes') or selected( /assessment/reporter/group_report/immunization , 'yes')"/>
       <bind nodeset="/assessment/reporter/group_report/pqmp_title" readonly="true()" type="string"/>
       <bind nodeset="/assessment/reporter/group_report/medicine" type="select1" required="true()"/>
       <bind nodeset="/assessment/reporter/group_report/death_title" readonly="true()" type="string"/>

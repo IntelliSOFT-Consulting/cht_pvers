@@ -17,6 +17,7 @@
 /.snapshots
 /backup.sh
 /setup.sh
+/git.sh
 
 
 # Logs
