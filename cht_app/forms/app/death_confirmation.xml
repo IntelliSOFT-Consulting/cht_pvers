@@ -144,7 +144,7 @@
       <bind nodeset="/death_confirmation/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/death_confirmation/patient_sex" type="string" calculate="../inputs/contact/sex"/>
       <bind nodeset="/death_confirmation/reporter/group_report/died" type="select1" required="true()"/>
-      <bind nodeset="/death_confirmation/reporter/group_report/date" type="date" required="true()" relevant="selected(../died, 'yes')" constraint=". &lt;= now()"/>
+      <bind nodeset="/death_confirmation/reporter/group_report/date" type="date" constraint=". &lt;= now()" required="true()" relevant="selected(../died, 'yes')"/>
       <bind nodeset="/death_confirmation/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
       <bind nodeset="/death_confirmation/data/meta/__patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
       <bind nodeset="/death_confirmation/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>

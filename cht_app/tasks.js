@@ -178,7 +178,7 @@ module.exports = [
       }
     ],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.reaction') === 'yes' && user.role === 'chw_supervisor') || (Utils.getField(report, 'reporter.group_report.quality') === 'yes' && user.role === 'chw_supervisor');
+      return (Utils.getField(report, 'reporter.group_report.reaction') === 'yes' && Utils.getField(report, 'reporter.group_report.death') === 'no' && user.role === 'chw_supervisor') || (Utils.getField(report, 'reporter.group_report.quality') === 'yes' && Utils.getField(report, 'reporter.group_report.death') === 'no' && user.role === 'chw_supervisor');
     },
     resolvedIf: function (contact, report, event, dueDate) {
       return Utils.isFormSubmittedInWindow(
