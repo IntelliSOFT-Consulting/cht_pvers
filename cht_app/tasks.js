@@ -41,7 +41,7 @@ module.exports = [
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {
       return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' && user.role === 'chw' || 
-      Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === ' Unknown' && user.role === 'chw');
+      Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown' && user.role === 'chw');
     },
     actions: [{ form: 'chw_follow' }],
     events: [

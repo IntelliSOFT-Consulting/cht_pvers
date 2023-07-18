@@ -92,11 +92,7 @@ module.exports = [
     icon: 'icon-up',
     goal: -1,  
     appliesTo: 'reports',
-    appliesToType: ['chw_follow'],
-    // appliesIf: function (contact, report) {      
-    //   return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' || 
-    //   Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown';
-    // }, 
+    appliesToType: ['chw_follow'], 
     date: 'now',
   },
 

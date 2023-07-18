@@ -48,7 +48,7 @@
             <value>User</value>
           </text>
           <text id="/death_confirmation/reporter/group_report/date:label">
-            <value>When did the patient died?</value>
+            <value>When did the patient die?</value>
           </text>
           <text id="/death_confirmation/reporter/group_report/died/no:label">
             <value>No</value>
@@ -57,12 +57,12 @@
             <value>Yes</value>
           </text>
           <text id="/death_confirmation/reporter/group_report/died:label">
-            <value>Did the patient died?</value>
+            <value>Did the patient die?</value>
           </text>
         </translation>
       </itext>
       <instance>
-        <death_confirmation id="death_confirmation" prefix="J1!death_confirmation!" delimiter="#" version="2023-07-17 01:24:07">
+        <death_confirmation id="death_confirmation" prefix="J1!death_confirmation!" delimiter="#" version="2023-07-18 05:24:35">
           <inputs>
             <meta>
               <location>
