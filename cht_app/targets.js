@@ -248,7 +248,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {      
-      return Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'Recovered/Resolved';
+      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Recovered/Resolved';
     }, 
     date: 'now',
   },
