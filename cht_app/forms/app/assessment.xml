@@ -107,7 +107,7 @@
         </translation>
       </itext>
       <instance>
-        <assessment id="assessment" prefix="J1!assessment!" delimiter="#" version="2023-07-17 09:24:34">
+        <assessment id="assessment" prefix="J1!assessment!" delimiter="#" version="2023-07-18 01:03:32">
           <inputs>
             <meta>
               <location>
@@ -153,11 +153,11 @@
               <sadr_title/>
               <medication/>
               <immunization/>
+              <reaction/>
               <pqmp_title/>
               <medicine/>
               <death_title/>
               <death/>
-              <reaction/>
             </group_report>
           </reporter>
           <data tag="hidden">
@@ -197,11 +197,11 @@
       <bind nodeset="/assessment/reporter/group_report/sadr_title" readonly="true()" type="string"/>
       <bind nodeset="/assessment/reporter/group_report/medication" type="select1" required="true()"/>
       <bind nodeset="/assessment/reporter/group_report/immunization" type="select1" required="true()"/>
+      <bind nodeset="/assessment/reporter/group_report/reaction" type="select1" relevant="selected( /assessment/reporter/group_report/medication ,'yes') or selected( /assessment/reporter/group_report/immunization , 'yes')" required="true()"/>
       <bind nodeset="/assessment/reporter/group_report/pqmp_title" readonly="true()" type="string"/>
       <bind nodeset="/assessment/reporter/group_report/medicine" type="select1" required="true()"/>
       <bind nodeset="/assessment/reporter/group_report/death_title" readonly="true()" type="string"/>
       <bind nodeset="/assessment/reporter/group_report/death" type="select1" required="true()"/>
-      <bind nodeset="/assessment/reporter/group_report/reaction" type="select1" required="true()"/>
       <bind nodeset="/assessment/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
       <bind nodeset="/assessment/data/meta/__patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
       <bind nodeset="/assessment/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
@@ -257,6 +257,17 @@
             <value>no</value>
           </item>
         </select1>
+        <select1 ref="/assessment/reporter/group_report/reaction">
+          <label ref="jr:itext('/assessment/reporter/group_report/reaction:label')"/>
+          <item>
+            <label ref="jr:itext('/assessment/reporter/group_report/reaction/yes:label')"/>
+            <value>yes</value>
+          </item>
+          <item>
+            <label ref="jr:itext('/assessment/reporter/group_report/reaction/no:label')"/>
+            <value>no</value>
+          </item>
+        </select1>
         <input ref="/assessment/reporter/group_report/pqmp_title">
           <label ref="jr:itext('/assessment/reporter/group_report/pqmp_title:label')"/>
         </input>
@@ -283,17 +294,6 @@
           </item>
           <item>
             <label ref="jr:itext('/assessment/reporter/group_report/death/no:label')"/>
-            <value>no</value>
-          </item>
-        </select1>
-        <select1 ref="/assessment/reporter/group_report/reaction">
-          <label ref="jr:itext('/assessment/reporter/group_report/reaction:label')"/>
-          <item>
-            <label ref="jr:itext('/assessment/reporter/group_report/reaction/yes:label')"/>
-            <value>yes</value>
-          </item>
-          <item>
-            <label ref="jr:itext('/assessment/reporter/group_report/reaction/no:label')"/>
             <value>no</value>
           </item>
         </select1>

@@ -36,11 +36,13 @@ module.exports = [
   {
     name: 'chw-follow-up',
     icon: 'icon-followup',
-    title: 'CHW Referral Follow Up:',
-    appliesTo: 'contacts',
-    appliesToType: ['person'],
-    appliesIf: c => c.contact.role === 'patient' && user.role === 'chw', /*Todo: add check for CHW*/
-    actions: [{ form: 'chwfollow' }],
+    title: 'CHW Referral Follow Up',
+    appliesTo: 'reports',
+    appliesToType: ['padr'],
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' && user.role === 'chw' || Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'Unknown' && user.role === 'chw');
+    },
+    actions: [{ form: 'chw_follow' }],
     events: [
       {
         id: 'chw-follow-up-form',
@@ -52,7 +54,7 @@ module.exports = [
     resolvedIf: function (contact, report, event, dueDate) {
       return Utils.isFormSubmittedInWindow(
         contact.reports,
-        'assessment',
+        'chw_follow',
         Utils.addDate(dueDate, -event.start).getTime(),
         Utils.addDate(dueDate, event.end + 1).getTime()
       );
@@ -97,7 +99,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'death' && user.role === 'chw_supervisor');
+      return (Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'Death' && user.role === 'chw_supervisor');
     },
     actions: [{ form: 'death_confirmation' }],
     events: [
@@ -138,16 +140,25 @@ module.exports = [
         end: 2,
       }
     ],
-    resolvedIf: function (contact, report, event, dueDate) {
-      return Utils.isFormSubmittedInWindow(
+    resolvedIf: function (contact, report, event, dueDate) { 
+      // Check if the 'padr' form has been submitted within the specified window
+      const formSubmittedInWindow = Utils.isFormSubmittedInWindow(
         contact.reports,
         'padr',
         Utils.addDate(dueDate, -event.start).getTime(),
         Utils.addDate(dueDate, event.end + 1).getTime()
       );
+
+      // Check if the 'padr' form has a 'yes' submission
+      const padrFormHasYes = contact.reports.some((rep) => {
+        return rep.form === 'padr' && Utils.getField(rep, 'availability.availability_report.available') === 'yes';
+      });
+
+      // Return true if both conditions are met
+      return formSubmittedInWindow && padrFormHasYes;
     }
 
-  }, 
+  },
   /*Create a Task when chw submits an assessment form
   NOTE: Only the supervisor should get this task
   */
@@ -180,20 +191,18 @@ module.exports = [
 
   },
 
-  /*
-  Create a Task when a report is submitted with ongoing reaction
-  NOTE: Supervisor should get this for follow up
-  */
+
+  // Show Task for Supervisor when the patient is not recovered after visit
   {
-    name: 'serious-case',
+    name: 'no-recovery-after-referral',
     icon: 'icon-followup',
-    title: 'Ongoing Adverse Reaction',
+    title: 'Post CHW Follow Up',
     appliesTo: 'reports',
-    appliesToType: ['padr'],
+    appliesToType: ['chw_follow'],
     actions: [{ form: 'follow' }],
     events: [
       {
-        id: 'alarm-on-ongoing-reaction',
+        id: 'no-recovery-after-referral-open',
         days: 7,
         start: 7,
         end: 2,
@@ -203,7 +212,7 @@ module.exports = [
       level: 'high',
     },
     appliesIf: function (contact, report) {
-      return Utils.getField(report, 'reaction.group_reaction.on') === 'yes' && user.role === 'chw_supervisor';
+      return Utils.getField(report, 'reporter.group_report.status ') === 'Patient has not recovered' && user.role === 'chw_supervisor';
     },
     resolvedIf: function (contact, report, event, dueDate) {
       return Utils.isFormSubmittedInWindow(

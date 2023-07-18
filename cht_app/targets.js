@@ -169,7 +169,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {      
-      return Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'not_recovered/not_resolved' || Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'unknown';
+      return Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' || Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'Unknown';
     }, 
     date: 'now',
   },
@@ -248,7 +248,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {      
-      return Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'recovered/resolved';
+      return Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'Recovered/Resolved';
     }, 
     date: 'now',
   },

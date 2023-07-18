@@ -47,25 +47,19 @@
           <text id="/follow/inputs/user:label">
             <value>User</value>
           </text>
-          <text id="/follow/reporter/group_report/on/no:label">
+          <text id="/follow/reporter/group_report/revisit/no:label">
             <value>No</value>
           </text>
-          <text id="/follow/reporter/group_report/on/yes:label">
+          <text id="/follow/reporter/group_report/revisit/yes:label">
             <value>Yes</value>
           </text>
-          <text id="/follow/reporter/group_report/on:label">
-            <value>Is <output value=" /follow/patient_name "/> still experiencing the Reaction?</value>
-          </text>
-          <text id="/follow/reporter/group_report/stop:jr:constraintMsg">
-            <value>Date must be before today</value>
-          </text>
-          <text id="/follow/reporter/group_report/stop:label">
-            <value>When did the reaction stop?</value>
+          <text id="/follow/reporter/group_report/revisit:label">
+            <value>The patient <output value=" /follow/patient_name "/> has not recovered after the facilty referral follow up. Do you confirm request for a new CHW Visit?</value>
           </text>
         </translation>
       </itext>
       <instance>
-        <follow id="follow" prefix="J1!follow!" delimiter="#" version="2023-06-05 21:45:55">
+        <follow id="follow" prefix="J1!follow!" delimiter="#" version="2023-07-18 00:39:05">
           <inputs>
             <meta>
               <location>
@@ -108,8 +102,7 @@
           <patient_sex/>
           <reporter>
             <group_report>
-              <on/>
-              <stop/>
+              <revisit/>
             </group_report>
           </reporter>
           <data tag="hidden">
@@ -146,8 +139,7 @@
       <bind nodeset="/follow/patient_id" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/follow/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/follow/patient_sex" type="string" calculate="../inputs/contact/sex"/>
-      <bind nodeset="/follow/reporter/group_report/on" type="select1" required="true()"/>
-      <bind nodeset="/follow/reporter/group_report/stop" type="date" relevant="selected(../on, 'no')" constraint=". &lt;= now()" jr:constraintMsg="jr:itext('/follow/reporter/group_report/stop:jr:constraintMsg')" required="true()"/>
+      <bind nodeset="/follow/reporter/group_report/revisit" type="select1" required="true()"/>
       <bind nodeset="/follow/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
       <bind nodeset="/follow/data/meta/__patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
       <bind nodeset="/follow/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
@@ -178,20 +170,17 @@
     </group>
     <group ref="/follow/reporter">
       <group appearance="field-list" ref="/follow/reporter/group_report">
-        <select1 ref="/follow/reporter/group_report/on">
-          <label ref="jr:itext('/follow/reporter/group_report/on:label')"/>
+        <select1 ref="/follow/reporter/group_report/revisit">
+          <label ref="jr:itext('/follow/reporter/group_report/revisit:label')"/>
           <item>
-            <label ref="jr:itext('/follow/reporter/group_report/on/yes:label')"/>
+            <label ref="jr:itext('/follow/reporter/group_report/revisit/yes:label')"/>
             <value>yes</value>
           </item>
           <item>
-            <label ref="jr:itext('/follow/reporter/group_report/on/no:label')"/>
+            <label ref="jr:itext('/follow/reporter/group_report/revisit/no:label')"/>
             <value>no</value>
           </item>
         </select1>
-        <input ref="/follow/reporter/group_report/stop">
-          <label ref="jr:itext('/follow/reporter/group_report/stop:label')"/>
-        </input>
       </group>
     </group>
     <group appearance="hidden" ref="/follow/data">
