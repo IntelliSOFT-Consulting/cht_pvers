@@ -81,67 +81,7 @@ module.exports = [
         pass: true
       }));
     }
-  },
-  // Adverse Reaction: Percentage of reports with adverse reaction for the current month
-  {
-    id: 'percentage-contacts-with-adverse-reaction-this-month',
-    type: 'percent',
-    icon: 'icon-danger-sign',
-    goal: -1,
-    translation_key: 'targets.padr.percentage.reaction.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    percentage_count_translation_key: 'targets.assessments.percentage.with.cough',
-    appliesTo: 'reports',
-    appliesToType: ['padr'],
-    appliesIf: function (contact) {
-      return isPatient(contact);
-    },
-    passesIf: function (contact, report) {
-      return Utils.getField(report, 'reporter.group_report.type') === 'reaction';
-    },
-    idType: 'contact',
-    date: 'reported'
-  },
-  // Reports with reaction status marked as yes:: Still ongoing
-  {
-    id: 'percentage-contacts-with-adverse-reaction-on-this-month',
-    type: 'percent',
-    icon: 'icon-reaction-on',
-    goal: -1,
-    translation_key: 'targets.padr.percentage.reaction.on.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    percentage_count_translation_key: 'targets.padr.percentage.with.reaction',
-    appliesTo: 'reports',
-    appliesToType: ['padr'],
-    appliesIf: function (contact) {
-      return isPatient(contact);
-    },
-    passesIf: function (contact, report) {
-      return Utils.getField(report, 'reaction.group_reaction.on') === 'yes';
-    },
-    idType: 'contact',
-    date: 'reported',
-  },
-  // Reports with Poor Quality Medicine reported
-  {
-    id: 'percentage-contacts-with-poor-quality-this-month',
-    type: 'percent',
-    icon: 'icon-risk',
-    goal: -1,
-    translation_key: 'targets.padr.percentage.quality.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    percentage_count_translation_key: 'targets.padr.percentage.with.poor.quality',
-    appliesTo: 'reports',
-    appliesToType: ['padr'],
-    appliesIf: function (contact) {
-      return isPatient(contact);
-    },
-    passesIf: function (contact, report) {
-      return Utils.getField(report, 'reporter.group_report.type') === 'medicine';
-    },
-    idType: 'contact',
-    date: 'reported'
-  },
+  }, 
 
   // Follow Up Assessments Completed
   {
@@ -150,10 +90,13 @@ module.exports = [
     subtitle_translation_key: 'targets.all_time.subtitle',
     type: 'count',
     icon: 'icon-up',
-    goal: -1,
-    appliesTo: 'contacts', 
-    appliesToType: ['household'],
-    appliesIf: c => isPatient(c.contact),
+    goal: -1,  
+    appliesTo: 'reports',
+    appliesToType: ['chw_follow'],
+    // appliesIf: function (contact, report) {      
+    //   return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' || 
+    //   Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown';
+    // }, 
     date: 'now',
   },
 
@@ -169,7 +112,8 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {      
-      return Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' || Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'Unknown';
+      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' || 
+      Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown';
     }, 
     date: 'now',
   },
