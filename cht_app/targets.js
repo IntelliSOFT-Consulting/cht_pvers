@@ -171,9 +171,6 @@ module.exports = [
     goal: -1, 
     appliesTo: 'reports',
     appliesToType: ['death_confirmation'],
-    appliesIf: function (contact, report) {      
-      return Utils.getField(report, 'reporter.group_report.died') === 'yes';
-    }, 
     date: 'now',
   },
 
