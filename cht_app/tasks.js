@@ -100,7 +100,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'outcome_details.group_outcome_details.outcome') === 'Death' && user.role === 'chw_supervisor');
+      return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Death' && user.role === 'chw_supervisor');
     },
     actions: [{ form: 'death_confirmation' }],
     events: [

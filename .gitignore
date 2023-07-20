@@ -2,7 +2,7 @@
 /cht_app/backups
 /cht_app/forms/app/padr.xml
 /cht_app/forms/app/follow.xml
-cht_app/forms/app/chw_follow.xml
+/cht_app/forms/app/chw_follow.xml
 /cht_app/forms/app/death_confirmation.xml
 /cht_app/forms/contact/clinic-create.xml
 /cht_app/forms/contact/clinic-edit.xml
@@ -17,6 +17,8 @@ cht_app/forms/app/chw_follow.xml
 /backup.sh
 /setup.sh
 /git.sh
+/cht_app/app_Settings.json
+
 
 
 # Logs
