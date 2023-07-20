@@ -265,6 +265,12 @@
         "death_reporting": true,
         "mark_for_outbound": true
     },
+    "death_reporting": {
+        "mark_deceased_forms": [
+          "death_confirmation"
+        ],
+        "date_field": "fields.date_of_death"
+     },
     "outbound": {
         "FHIR_Patients": {
             "relevant_to": "doc.type === 'person' && doc.role == 'patient'",
