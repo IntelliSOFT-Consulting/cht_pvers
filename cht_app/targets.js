@@ -81,7 +81,7 @@ module.exports = [
         pass: true
       }));
     }
-  }, 
+  },
 
   // Follow Up Assessments Completed
   {
@@ -90,9 +90,9 @@ module.exports = [
     subtitle_translation_key: 'targets.all_time.subtitle',
     type: 'count',
     icon: 'icon-up',
-    goal: -1,  
+    goal: -1,
     appliesTo: 'reports',
-    appliesToType: ['chw_follow'], 
+    appliesToType: ['chw_follow'],
     date: 'now',
   },
 
@@ -107,10 +107,10 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['padr'],
-    appliesIf: function (contact, report) {      
-      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' || 
-      Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown';
-    }, 
+    appliesIf: function (contact, report) {
+      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' ||
+        Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown';
+    },
     date: 'now',
   },
   // Adverse Drug Reactions Identified
@@ -123,13 +123,13 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['assessment'],
-    appliesIf: function (contact, report) {      
+    appliesIf: function (contact, report) {
       return (Utils.getField(report, 'reporter.group_report.medication') === 'yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'yes');
-    }, 
+    },
     date: 'now',
   },
-   // Adverse Reactions reported following Immunization/Vaccination
-   {
+  // Adverse Reactions reported following Immunization/Vaccination
+  {
     id: 'adverse-drug-reactions-following-immunization',
     translation_key: 'adverse.drug.reactions.following.immunization.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
@@ -138,9 +138,9 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['assessment'],
-    appliesIf: function (contact, report) {       
+    appliesIf: function (contact, report) {
       return (Utils.getField(report, 'reporter.group_report.immunization') === 'yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'yes');
-    }, 
+    },
     date: 'now',
   },
 
@@ -155,9 +155,9 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['assessment'],
-    appliesIf: function (contact, report) {       
+    appliesIf: function (contact, report) {
       return (Utils.getField(report, 'reporter.group_report.medicine') === 'yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'yes');
-    }, 
+    },
     date: 'now',
   },
 
@@ -168,7 +168,7 @@ module.exports = [
     subtitle_translation_key: 'targets.all_time.subtitle',
     type: 'count',
     icon: 'icon-death-coffin',
-    goal: -1, 
+    goal: -1,
     appliesTo: 'reports',
     appliesToType: ['death_confirmation'],
     date: 'now',
@@ -183,10 +183,10 @@ module.exports = [
     icon: 'icon-referral',
     goal: -1,
     appliesTo: 'reports',
-    appliesToType: ['padr'],
-    appliesIf: function (contact, report) {      
-      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Recovered/Resolved';
-    }, 
+    appliesToType: ['padr', 'chw_follow'],
+    appliesIf: function (contact, report) {
+      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Recovered/Resolved' || Utils.getField(report, 'reporter.group_report.fully_recovered') === 'yes' || Utils.getField(report, 'reporter.group_report.status') === 'Patient recovered';
+    },
     date: 'now',
   },
 

@@ -163,8 +163,7 @@
         ],
         "can_verify_reports": [
             "program_officer",
-            "chw_supervisor",
-            "chw"
+            "chw_supervisor"
         ],
         "can_view_analytics": [
             "analytics",
