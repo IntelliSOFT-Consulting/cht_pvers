@@ -35,19 +35,23 @@
     "contact_display_short": "clinic.name",
     "roles": {
         "data_entry": {
-            "name": "usertype.data-entry"
+            "name": "usertype.data-entry",
+            "offline": true
         },
         "analytics": {
-            "name": "usertype.analytics"
+            "name": "usertype.analytics",
+            "offline": true
         },
         "gateway": {
             "name": "usertype.gateway"
         },
         "program_officer": {
-            "name": "usertype.program-officer"
+            "name": "usertype.program-officer",
+            "offline": true
         },
         "crfo": {
-            "name": "usertype.crfo"
+            "name": "usertype.crfo",
+            "offline": true
         },
         "chw_supervisor": {
             "name": "usertype.chw-supervisor",
@@ -167,12 +171,15 @@
         ],
         "can_view_analytics": [
             "analytics",
+            "admin",
             "program_officer",
             "chw_supervisor",
             "chw"
         ],
         "can_view_analytics_tab": [
             "program_officer",
+            "admin",
+            "analytics",
             "chw_supervisor",
             "chw"
         ],

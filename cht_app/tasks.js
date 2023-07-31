@@ -11,9 +11,9 @@ module.exports = [
     icon: 'icon-healthcare',
     title: 'Household Member Assessment',
     appliesTo: 'contacts',
-    appliesToType: ['person'],
+    appliesToType: ['persons'], //Don't show this task
     appliesIf: c => c.contact.role === 'patient' && user.role === 'chw', /*Todo: add check for CHW*/
-    actions: [{ form: 'assessment' }],
+    actions: [{ form: 'assessments' }],
     events: [
       {
         id: 'assessment-form',
