@@ -152,7 +152,7 @@ module.exports = [
 
       // Check if the 'padr' form has a 'yes' submission
       const padrFormHasYes = contact.reports.some((rep) => {
-        return rep.form === 'padr' && Utils.getField(rep, 'availability.availability_report.available') === 'yes';
+        return rep.form === 'padr' && Utils.getField(rep, 'availability.availability_report.available') === 'Yes';
       });
 
       // Return true if both conditions are met
@@ -179,7 +179,7 @@ module.exports = [
       }
     ],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.reaction') === 'yes' && Utils.getField(report, 'reporter.group_report.death') === 'no' && user.role === 'chw_supervisor') || (Utils.getField(report, 'reporter.group_report.quality') === 'yes' && Utils.getField(report, 'reporter.group_report.death') === 'no' && user.role === 'chw_supervisor');
+      return (Utils.getField(report, 'reporter.group_report.reaction') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor') || (Utils.getField(report, 'reporter.group_report.quality') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor');
     },
     resolvedIf: function (contact, report, event, dueDate) {
       return Utils.isFormSubmittedInWindow(
