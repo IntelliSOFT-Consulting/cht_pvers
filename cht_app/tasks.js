@@ -72,7 +72,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['assessment'],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.death') === 'yes' && user.role === 'chw_supervisor');
+      return (Utils.getField(report, 'reporter.group_report.death') === 'Yes' && user.role === 'chw_supervisor');
     },
     actions: [{ form: 'death_confirmation' }],
     events: [
@@ -130,7 +130,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'availability.availability_report.available') === 'no' && user.role === 'chw_supervisor');
+      return (Utils.getField(report, 'availability.availability_report.available') === 'No' && user.role === 'chw_supervisor');
     },
     actions: [{ form: 'padr' }],
     events: [
