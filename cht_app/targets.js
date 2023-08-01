@@ -124,7 +124,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['assessment'],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.medication') === 'yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'yes');
+      return (Utils.getField(report, 'reporter.group_report.medication') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
     },
     date: 'now',
   },
@@ -139,7 +139,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['assessment'],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.immunization') === 'yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'yes');
+      return (Utils.getField(report, 'reporter.group_report.immunization') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
     },
     date: 'now',
   },
@@ -156,7 +156,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['assessment'],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.medicine') === 'yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'yes');
+      return (Utils.getField(report, 'reporter.group_report.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
     },
     date: 'now',
   },
@@ -185,7 +185,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr', 'chw_follow'],
     appliesIf: function (contact, report) {
-      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Recovered/Resolved' || Utils.getField(report, 'reporter.group_report.fully_recovered') === 'yes' || Utils.getField(report, 'reporter.group_report.status') === 'Patient recovered';
+      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Recovered/Resolved' || Utils.getField(report, 'reporter.group_report.fully_recovered') === 'Yes' || Utils.getField(report, 'reporter.group_report.status') === 'Patient recovered';
     },
     date: 'now',
   },
