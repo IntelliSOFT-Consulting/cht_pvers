@@ -40,8 +40,8 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' && user.role === 'chw' || 
-      Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown' && user.role === 'chw');
+      return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' && user.role === 'chw' ||
+        Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown' && user.role === 'chw');
     },
     actions: [{ form: 'chw_follow' }],
     events: [
@@ -141,7 +141,7 @@ module.exports = [
         end: 2,
       }
     ],
-    resolvedIf: function (contact, report, event, dueDate) { 
+    resolvedIf: function (contact, report, event, dueDate) {
       // Check if the 'padr' form has been submitted within the specified window
       const formSubmittedInWindow = Utils.isFormSubmittedInWindow(
         contact.reports,
@@ -169,7 +169,13 @@ module.exports = [
     title: 'Household Visit',
     appliesTo: 'reports',
     appliesToType: ['assessment'],
-    actions: [{ form: 'padr' }],
+    actions: [
+      {
+        form: 'padr',
+        // modifyContent: function (content) { 
+        //   content.form.reporter.person_phone = '254700223322';
+        // }
+      }],
     events: [
       {
         id: 'padr-form',

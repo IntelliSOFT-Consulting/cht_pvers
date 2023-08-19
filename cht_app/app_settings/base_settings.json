@@ -198,8 +198,13 @@
             "chw_supervisor",
             "chw"
         ],
-        "can_view_last_visited_date": [],
-        "can_view_uhc_stats": [],
+        "can_view_last_visited_date": [
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_uhc_stats": [
+            "chwUserRole"
+        ],
         "can_view_message_action": [
             "program_officer",
             "chw_supervisor",
@@ -273,10 +278,10 @@
     },
     "death_reporting": {
         "mark_deceased_forms": [
-          "death_confirmation"
+            "death_confirmation"
         ],
         "date_field": "fields.date_of_death"
-     },
+    },
     "outbound": {
         "FHIR_Patients": {
             "relevant_to": "doc.type === 'person' && doc.role == 'patient'",

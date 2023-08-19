@@ -198,8 +198,13 @@
       "chw_supervisor",
       "chw"
     ],
-    "can_view_last_visited_date": [],
-    "can_view_uhc_stats": [],
+    "can_view_last_visited_date": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_uhc_stats": [
+      "chwUserRole"
+    ],
     "can_view_message_action": [
       "program_officer",
       "chw_supervisor",
