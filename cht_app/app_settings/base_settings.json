@@ -449,8 +449,7 @@
             "edit_key": "contact.type.person.edit",
             "primary_contact_key": "clinic.field.contact",
             "parents": [
-                "district_hospital",
-                "health_center",
+                "district_hospital", 
                 "clinic"
             ],
             "icon": "medic-person",

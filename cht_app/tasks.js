@@ -1,31 +1,34 @@
 
 module.exports = [
 
-  /*
-   Create a Task when a new contact is created
-   NOTE: Only show if the current user is a CHW  
-   */
-
+  /*Create a Task when chw submits an assessment form
+NOTE: Only the supervisor should get this task
+*/
   {
-    name: 'assessment-after-registration',
+    name: 'padr-after-assessment',
     icon: 'icon-healthcare',
-    title: 'Household Member Assessment',
-    appliesTo: 'contacts',
-    appliesToType: ['persons'], //Don't show this task
-    appliesIf: c => c.contact.role === 'patient' && user.role === 'chw', /*Todo: add check for CHW*/
-    actions: [{ form: 'assessments' }],
+    title: 'Household Visit',
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    actions: [
+      {
+        form: 'padr',
+      }],
     events: [
       {
-        id: 'assessment-form',
+        id: 'padr-form',
         days: 7,
         start: 7,
         end: 2,
       }
     ],
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'reporter.group_report.reaction') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor') || (Utils.getField(report, 'reporter.group_report.quality') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor');
+    },
     resolvedIf: function (contact, report, event, dueDate) {
       return Utils.isFormSubmittedInWindow(
         contact.reports,
-        'assessment',
+        'padr',
         Utils.addDate(dueDate, -event.start).getTime(),
         Utils.addDate(dueDate, event.end + 1).getTime()
       );
@@ -160,43 +163,7 @@ module.exports = [
     }
 
   },
-  /*Create a Task when chw submits an assessment form
-  NOTE: Only the supervisor should get this task
-  */
-  {
-    name: 'padr-after-assessment',
-    icon: 'icon-healthcare',
-    title: 'Household Visit',
-    appliesTo: 'reports',
-    appliesToType: ['assessment'],
-    actions: [
-      {
-        form: 'padr',
-        // modifyContent: function (content) { 
-        //   content.form.reporter.person_phone = '254700223322';
-        // }
-      }],
-    events: [
-      {
-        id: 'padr-form',
-        days: 7,
-        start: 7,
-        end: 2,
-      }
-    ],
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.reaction') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor') || (Utils.getField(report, 'reporter.group_report.quality') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor');
-    },
-    resolvedIf: function (contact, report, event, dueDate) {
-      return Utils.isFormSubmittedInWindow(
-        contact.reports,
-        'padr',
-        Utils.addDate(dueDate, -event.start).getTime(),
-        Utils.addDate(dueDate, event.end + 1).getTime()
-      );
-    }
 
-  },
 
 
   // Show Task for Supervisor when the patient is not recovered after visit
