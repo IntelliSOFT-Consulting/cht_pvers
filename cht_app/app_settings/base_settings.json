@@ -203,7 +203,8 @@
             "chw"
         ],
         "can_view_uhc_stats": [
-            "chwUserRole"
+            "chw",
+            "chw_supervisor"
         ],
         "can_view_message_action": [
             "program_officer",
@@ -449,7 +450,8 @@
             "edit_key": "contact.type.person.edit",
             "primary_contact_key": "clinic.field.contact",
             "parents": [
-                "district_hospital", 
+                "district_hospital",
+                "health_center",
                 "clinic"
             ],
             "icon": "medic-person",
