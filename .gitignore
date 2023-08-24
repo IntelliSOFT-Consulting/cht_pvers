@@ -15,10 +15,14 @@
 /cht_app/forms/contact/person-edit.xml
 /cht_app/forms/contact/member-create.xml
 /cht_app/forms/contact/member-edit.xml
+/cht_app/forms/app/mute_person.xml
+ 
 /cht_app/.snapshots
 /.snapshots
 /backup.sh
 /setup.sh
+/install.sh
+/remove.sh
 /git.sh
 /cht_app/app_Settings.json
 
