@@ -402,7 +402,8 @@
     },
     "place_hierarchy_types": [
         "district_hospital",
-        "health_center"
+        "health_center",
+        "clinic"
     ],
     "contact_types": [
         {

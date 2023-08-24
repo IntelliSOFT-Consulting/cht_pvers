@@ -13,6 +13,8 @@
 /cht_app/forms/contact/health_center-edit.xml
 /cht_app/forms/contact/person-create.xml
 /cht_app/forms/contact/person-edit.xml
+/cht_app/forms/contact/member-create.xml
+/cht_app/forms/contact/member-edit.xml
 /cht_app/.snapshots
 /.snapshots
 /backup.sh
