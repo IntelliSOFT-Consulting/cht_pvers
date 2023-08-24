@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const Harness = require('cht-conf-test-harness');
-const { now } = require('../../shared');
+// const { now } = require('../../shared');
 const harness = new Harness();
 
 describe('Target: households-registered-all-time', () => {

@@ -1,13 +1,11 @@
 
 module.exports = [
 
-  /*Create a Task when chw submits an assessment form
-NOTE: Only the supervisor should get this task
-*/
+  /*Create a Task when chw submits an assessment form NOTE: Only the supervisor should get this task*/
   {
     name: 'padr-after-assessment',
     icon: 'icon-healthcare',
-    title: 'Household Visit',
+    title: 'Household Member Visit',
     appliesTo: 'reports',
     appliesToType: ['assessment'],
     actions: [
@@ -35,7 +33,7 @@ NOTE: Only the supervisor should get this task
     }
 
   },
-  // Create a CHW Task to ensure the Patient went to the hospital: :7 Days
+  /*Create a CHW Task to ensure the Patient went to the hospital: :7 Days */
   {
     name: 'chw-follow-up',
     icon: 'icon-followup',
@@ -66,7 +64,7 @@ NOTE: Only the supervisor should get this task
 
   },
 
-  // CREATE a death confirmation task for CHW Supervisor
+  /* CREATE a death confirmation task for CHW Supervisor */
 
   {
     name: 'supervisor-death-confirmation',
@@ -125,7 +123,7 @@ NOTE: Only the supervisor should get this task
 
   },
 
-  // Create a Task for Supervisor to follow up patient if not avaialable:: 5 days maximum
+  /* Create a Task for Supervisor to follow up patient if not avaialable:: 5 days maximum */
   {
     name: 'supervisor-padr-follow-up',
     icon: 'icon-followup',
@@ -163,10 +161,7 @@ NOTE: Only the supervisor should get this task
     }
 
   },
-
-
-
-  // Show Task for Supervisor when the patient is not recovered after visit
+  /* Show Task for Supervisor when the patient is not recovered after visit */
   {
     name: 'no-recovery-after-referral',
     icon: 'icon-followup',

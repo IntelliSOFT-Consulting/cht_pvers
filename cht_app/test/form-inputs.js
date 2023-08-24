@@ -3,11 +3,24 @@ const NOW = DateTime.local();
 
 module.exports = {
   padrScenarios: {
-    reaction: [
-      ['Vomiting_or_diarrhea', 'No Other Side Effects', '2023-04-30', 'yes'],
+    availability:[
+      ['No'],
     ],
+    reaction: [
+      ['Yes'],
+      ['Japheth Kiprotich', '+254700123432', 'Self', 'Mombasa', 'Reaction'],
+      ['Vomiting_or_diarrhea,Dizziness_or_drowsiness','', '2023-08-23', 'Yes'],
+      ['1', 'Medicine', 'Manufacturer', 'Location', '2023-08-20', '2023-08-23', '2024-10-20'],
+      ['Death'],
+    ],
+
+    // Poor Quality Medicine
     medicine: [
-      ['The_label_looks_wrong', 'None'],
+      ['Yes'],
+      ['Japheth Kiprotich', '+254700123432', 'Self', 'Mombasa', 'Medicine'],
+      ['The_label_looks_wrong'],
+      ['1', 'Medicine', 'Manufacturer', 'Location', '2023-08-20', '2023-08-23', '2024-10-20'],
+      ['Unknown'],
     ]
   },
   submissionScenario: {

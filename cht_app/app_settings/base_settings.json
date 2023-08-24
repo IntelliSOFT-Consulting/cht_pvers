@@ -453,7 +453,24 @@
             "parents": [
                 "district_hospital",
                 "health_center",
-                "clinic"
+                "clinic"  
+            ],
+            "icon": "medic-person",
+            "create_form": "form:contact:person:create",
+            "edit_form": "form:contact:person:edit",
+            "person": true
+        },
+
+       
+        {
+            "id": "member",
+            "name_key": "contact.type.person",
+            "group_key": "contact.type.person.plural",
+            "create_key": "contact.type.person.new",
+            "edit_key": "contact.type.person.edit",
+            "primary_contact_key": "clinic.field.contact",
+            "parents": [
+               
             ],
             "icon": "medic-person",
             "create_form": "form:contact:person:create",
