@@ -86,6 +86,23 @@ module.exports = {
     ],
     
   },
-
-  
+  contactScenario: {
+    guardian: [
+      ['Yes'],
+      ['Japheth Kiprotich', '+254700123432', 'Guardian', 'Mombasa', 'Reaction'],
+      ['Vomiting_or_diarrhea,Dizziness_or_drowsiness', '', '2023-08-23', 'Yes'],
+      ['1', 'Medicine', 'Manufacturer', 'Location', '2023-08-20', '2023-08-23', '2024-10-20'],
+      ['Death'],
+    ],
+    visitedfaciltyneverrecovered: [
+      ['Yes', 'No']
+    ],
+    fullyrecovered: [
+      ['No', 'Patient recovered']
+    ],
+    neverrecovered: [
+      ['No', 'Patient has not recovered']
+    ]
+  },
+   
 };
