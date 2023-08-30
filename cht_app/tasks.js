@@ -168,7 +168,25 @@ module.exports = [
     title: 'Household Member Visit',
     appliesTo: 'reports',
     appliesToType: ['assessment'],
-    actions: [{ form: 'padr' }],
+    // actions: [{ form: 'padr' }],
+    actions: [{
+      type: 'report',
+      form: 'padr',
+      // Pass content that will be used within the task form
+      modifyContent: function (content, contact, report) {
+        console.log(contact);
+        var type = '';
+        const reaction = Utils.getField(report, 'reporter.group_report.reaction');
+        if (reaction === 'Yes') {
+          type = 'Reaction';
+        }
+        const quality = Utils.getField(report, 'reporter.group_report.medicine');
+        if (quality === 'Yes') {
+          type = 'Medicine';
+        }
+        content.select = type;
+      }
+    }],
     events: [
       {
         id: 'padr-form',
