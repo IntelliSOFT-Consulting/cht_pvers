@@ -38,7 +38,7 @@ module.exports = [
     aggregate: true
   },
 
-  // PADRs: Total Adverse Drug Reaction Reports
+  // PADRs: Total reports submitted
   {
     id: 'padr-all-time',
     type: 'count',
@@ -48,13 +48,10 @@ module.exports = [
     subtitle_translation_key: 'targets.all_time.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
-    date: 'now',
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Reaction');
-    },
+    date: 'now'
   },
 
-  // PADRs: Monthly reports- shows reports submitted this month with adverse drug reaction
+  // PADRs: Monthly reports- shows reports submitted this month
   {
     id: 'padr-this-month',
     type: 'count',
@@ -64,12 +61,9 @@ module.exports = [
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
-    date: 'reported', 
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Reaction');
-    },
+    date: 'reported'
   },
-  // PADRs: Display households registered this month with adverse drug reaction
+  // PADRs: Display households registered this month with a target of 15
   {
     id: 'households-with-padr-this-month',
     type: 'count',
@@ -80,9 +74,6 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr'],
     date: 'reported',
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Reaction');
-    },
     emitCustom: (emit, original, contact) => {
       const householdId = getHouseholdId(contact);
       emit(Object.assign({}, original, {
@@ -91,10 +82,9 @@ module.exports = [
       }));
     }
   },
-
   // Poor Quality Medicine
-   // PADRs: Total Poor Quality Medicine Reports
-   {
+  // PADRs: Total Poor Quality Medicine Reports
+  {
     id: 'poor-quality-padr-all-time',
     type: 'count',
     icon: 'icon-risk',
@@ -119,7 +109,7 @@ module.exports = [
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
-    date: 'reported', 
+    date: 'reported',
     appliesIf: function (contact, report) {
       return (Utils.getField(report, 'form.reporter.group_report.type') === 'Medicine');
     },
@@ -146,7 +136,6 @@ module.exports = [
       }));
     }
   },
-
   // Follow Up Assessments Completed
   {
     id: 'follow-up-assessments-completed',
@@ -208,10 +197,10 @@ module.exports = [
     date: 'now',
   },
 
-  // Poor Quality Medicine Identified
+  // Poor Quality Medicine Reported
 
   {
-    id: 'poor-quality-medicine-identified',
+    id: 'poor-quality-medicine-reported',
     translation_key: 'poor.quality.medicine.reported.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
     type: 'count',
@@ -235,6 +224,22 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['death_confirmation'],
+    date: 'now',
+  },
+  // Poor Quality Medicine Identified
+
+  {
+    id: 'poor-quality-medicine-identified',
+    translation_key: 'poor.quality.medicine.reported.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-sadr',
+    goal: -1,
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'reporter.group_report.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
+    },
     date: 'now',
   },
 
