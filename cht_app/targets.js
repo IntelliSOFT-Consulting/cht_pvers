@@ -2,12 +2,43 @@
 const getHouseholdId = (contact) => contact.contact && contact.contact.type === 'clinic' ? contact.contact._id : contact.contact.parent && contact.contact.parent._id;
 
 //Define a function to determine if contact is patient
-// const isPatient = (contact) => contact.contact && contact.contact.type === 'person' && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
+const isPatient = (contact) => contact.contact && contact.contact.type === 'person' && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
 
 
 module.exports = [
 
   
+  // General: Total households currently registered by CHWs
+  {
+    id: 'households-registered-all-time',
+    translation_key: 'targets.household.registrations.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'medic-clinic',
+    goal: -1,
+    appliesTo: 'contacts',
+    context: 'user.contact_type === "chw"',
+    appliesToType: ['household'],
+    appliesIf: c => isPatient(c.contact),
+    date: 'now',
+    aggregate: true
+  },
+  // General: Population
+  {
+    id: 'people-registered-all-time',
+    translation_key: 'targets.person.registrations.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-person',
+    context: 'user.contact_type === "chw"',
+    goal: -1,
+    appliesTo: 'contacts',
+    appliesToType: ['persons'],
+    appliesIf: (c) => isPatient(c.contact),
+    date: 'now',
+    aggregate: true
+  },
+
 
   // PADRs: Total reports submitted
   {

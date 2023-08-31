@@ -36,7 +36,7 @@ module.exports = [
   {
     name: 'chw-follow-up',
     icon: 'icon-followup',
-    title: 'CHW Referral Follow Up',
+    title: 'CHP Referral Follow Up',
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {
@@ -126,7 +126,7 @@ module.exports = [
   {
     name: 'supervisor-padr-follow-up',
     icon: 'icon-followup',
-    title: 'CHW Supervisor Follow Up',
+    title: 'CHP Supervisor Follow Up',
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {
@@ -216,7 +216,7 @@ module.exports = [
   {
     name: 'no-recovery-after-referral',
     icon: 'icon-followup',
-    title: 'Post CHW Follow Up',
+    title: 'Post CHP Follow Up',
     appliesTo: 'reports',
     appliesToType: ['chw_follow'],
     actions: [{ form: 'follow' }],
