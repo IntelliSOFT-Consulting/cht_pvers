@@ -464,8 +464,9 @@
             "edit_form": "form:contact:person:edit",
             "person": true
         },
+        
         {
-            "id": "member",
+            "id": "household_member",
             "name_key": "contact.type.member",
             "group_key": "contact.type.member.plural",
             "create_key": "contact.type.member.new",
@@ -474,10 +475,12 @@
                 "clinic"
             ],
             "icon": "medic-person",
-            "create_form": "form:contact:member:create",
-            "edit_form": "form:contact:member:edit",
+            "create_form": "form:contact:household_member:create",
+            "edit_form": "form:contact:household_member:edit",
             "person": true
         }
+
+ 
     ],
     "muting": {
         "mute_forms": [
