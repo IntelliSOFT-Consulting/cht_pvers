@@ -16,6 +16,10 @@
 /cht_app/forms/contact/member-create.xml
 /cht_app/forms/contact/member-edit.xml
 /cht_app/forms/app/mute_person.xml
+/cht_app/forms/contact/household_member-create.xml 
+/cht_app/forms/contact/household_member-edit.xml
+/cht_app/forms/contact/supervisor_region-create.xml 
+/cht_app/forms/contact/supervisor_region-edit.xml 
  
 /cht_app/.snapshots
 /.snapshots
