@@ -1,44 +1,13 @@
+
 //Define a function to get the household ID based on the hierarchy configuration
 const getHouseholdId = (contact) => contact.contact && contact.contact.type === 'clinic' ? contact.contact._id : contact.contact.parent && contact.contact.parent._id;
 
 //Define a function to determine if contact is patient
-const isPatient = (contact) => contact.contact && contact.contact.type === 'person' && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
-
+// const isPatient = (contact) => contact.contact && contact.contact.type === 'person' && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
+// const isChw = (contact) => contact.contact && contact.contact.type === 'person' && user.parent.contact_type === 'chw_area';
 
 module.exports = [
-
-  
-  // General: Total households currently registered by CHWs
-  {
-    id: 'households-registered-all-time',
-    translation_key: 'targets.household.registrations.title',
-    subtitle_translation_key: 'targets.all_time.subtitle',
-    type: 'count',
-    icon: 'medic-clinic',
-    goal: -1,
-    appliesTo: 'contacts',
-    context: 'user.contact_type === "chw"',
-    appliesToType: ['household'],
-    appliesIf: c => isPatient(c.contact),
-    date: 'now',
-    aggregate: true
-  },
-  // General: Population
-  {
-    id: 'people-registered-all-time',
-    translation_key: 'targets.person.registrations.title',
-    subtitle_translation_key: 'targets.all_time.subtitle',
-    type: 'count',
-    icon: 'icon-person',
-    context: 'user.contact_type === "chw"',
-    goal: -1,
-    appliesTo: 'contacts',
-    appliesToType: ['persons'],
-    appliesIf: (c) => isPatient(c.contact),
-    date: 'now',
-    aggregate: true
-  },
-
+ 
 
   // PADRs: Total reports submitted
   {
@@ -50,6 +19,7 @@ module.exports = [
     subtitle_translation_key: 'targets.all_time.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
+    context: 'user.role === "chw_supervisor"',
     date: 'now'
   },
 
@@ -63,7 +33,8 @@ module.exports = [
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
-    date: 'reported'
+    date: 'reported',
+    context: 'user.role === "chw_supervisor"',
   },
   // PADRs: Display households registered this month with a target of 15
   {
@@ -76,6 +47,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr'],
     date: 'reported',
+    context: 'user.role === "chw_supervisor"',
     emitCustom: (emit, original, contact) => {
       const householdId = getHouseholdId(contact);
       emit(Object.assign({}, original, {
@@ -95,6 +67,7 @@ module.exports = [
     subtitle_translation_key: 'targets.all_time.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
+    context: 'user.role === "chw_supervisor"',
     date: 'now',
     appliesIf: function (contact, report) {
       return (Utils.getField(report, 'form.reporter.group_report.type') === 'Medicine');
@@ -112,6 +85,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr'],
     date: 'reported',
+    context: 'user.role === "chw_supervisor"',
     appliesIf: function (contact, report) {
       return (Utils.getField(report, 'form.reporter.group_report.type') === 'Medicine');
     },
@@ -127,6 +101,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr'],
     date: 'reported',
+    context: 'user.role === "chw_supervisor"',
     appliesIf: function (contact, report) {
       return (Utils.getField(report, 'form.reporter.group_report.type') === 'Medicine');
     },
@@ -149,6 +124,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['chw_follow'],
     date: 'now',
+    context: 'user.role === "chw"',
   },
 
   // Referrals Completed
@@ -162,9 +138,10 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['padr'],
+    context: 'user.role === "chw_supervisor"',
     appliesIf: function (contact, report) {
-      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' ||
-        Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown';
+      return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' ||
+        Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown');
     },
     date: 'now',
   },
@@ -178,6 +155,7 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['assessment'],
+    context: 'user.role === "chw"',
     appliesIf: function (contact, report) {
       return (Utils.getField(report, 'reporter.group_report.medication') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
     },
@@ -193,6 +171,7 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['assessment'],
+    context: 'user.role === "chw"',
     appliesIf: function (contact, report) {
       return (Utils.getField(report, 'reporter.group_report.immunization') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
     },
@@ -210,6 +189,7 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['assessment'],
+    context: 'user.role === "chw"',
     appliesIf: function (contact, report) {
       return (Utils.getField(report, 'reporter.group_report.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
     },
@@ -226,6 +206,7 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['death_confirmation'],
+    context: 'user.role === "chw_supervisor"',
     date: 'now',
   },
   // Poor Quality Medicine Identified
@@ -239,6 +220,7 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['assessment'],
+    context: 'user.role === "chw"',
     appliesIf: function (contact, report) {
       return (Utils.getField(report, 'reporter.group_report.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
     },
@@ -254,9 +236,25 @@ module.exports = [
     icon: 'icon-referral',
     goal: -1,
     appliesTo: 'reports',
-    appliesToType: ['padr', 'chw_follow'],
+    appliesToType: ['chw_follow'],
+    context: 'user.role === "chw"',
     appliesIf: function (contact, report) {
-      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Recovered/Resolved' || Utils.getField(report, 'reporter.group_report.fully_recovered') === 'Yes' || Utils.getField(report, 'reporter.group_report.status') === 'Patient recovered';
+      return (Utils.getField(report, 'reporter.group_report.fully_recovered') === 'Yes' || Utils.getField(report, 'reporter.group_report.status') === 'Patient recovered');
+    },
+    date: 'now',
+  },
+  {
+    id: 'total-number-of-recoveries-reported-alt',
+    translation_key: 'total.number.of.recoveries.reported.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-referral',
+    goal: -1,
+    appliesTo: 'reports',
+    appliesToType: ['padr'],
+    context: 'user.role === "chw_supervisor"',
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Recovered/Resolved');
     },
     date: 'now',
   },
