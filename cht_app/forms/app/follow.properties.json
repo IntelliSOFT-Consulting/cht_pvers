@@ -3,7 +3,5 @@
     "title": "Follow Up Report",
     "context": {
         "person": false,
-        "place": false,
-        "expression": "!contact.date_of_death && (contact.contact_type === 'household_member'||contact.type === 'person') "
-    }
+        "place": false  }
 }

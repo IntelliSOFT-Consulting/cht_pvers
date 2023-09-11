@@ -3,7 +3,5 @@
     "title": "Assessment Form",
     "context": {
         "person": true,
-        "place": false,
-        "expression": "!contact.date_of_death && (contact.contact_type === 'household_member'|| contact.type === 'person') && (user.role === 'chw'|| user.role === 'chw_supervisor')"
-    }
+        "place": false }
 }

@@ -3,7 +3,5 @@
     "title": "Death Confirmation",
     "context": {
         "person": false,
-        "place": false,
-        "expression": "(contact.contact_type === 'household_member'||contact.type === 'person') "
-    }
+        "place": false }
 }

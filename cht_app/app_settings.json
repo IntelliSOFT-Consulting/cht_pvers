@@ -35,26 +35,22 @@
   "contact_display_short": "clinic.name",
   "roles": {
     "analytics": {
-      "name": "usertype.analytics",
+      "name": "Analytics",
       "offline": true
     },
     "gateway": {
-      "name": "usertype.gateway"
+      "name": "Gateway"
     },
     "program_officer": {
-      "name": "usertype.program-officer",
-      "offline": true
-    },
-    "crfo": {
-      "name": "usertype.crfo",
+      "name": "Nurse/Facility Manager",
       "offline": true
     },
     "chw_supervisor": {
-      "name": "usertype.chw-supervisor",
+      "name": "CHA",
       "offline": true
     },
     "chw": {
-      "name": "usertype.chw",
+      "name": "CHP",
       "offline": true
     }
   },
