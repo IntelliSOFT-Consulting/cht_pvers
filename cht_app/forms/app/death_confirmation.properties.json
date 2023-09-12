@@ -3,5 +3,6 @@
     "title": "Death Confirmation",
     "context": {
         "person": false,
-        "place": false }
+        "place": false
+    }
 }

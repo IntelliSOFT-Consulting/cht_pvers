@@ -3,5 +3,6 @@
     "title": "Assessment Form",
     "context": {
         "person": true,
-        "place": false }
+        "place": false
+    }
 }

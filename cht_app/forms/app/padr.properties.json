@@ -3,5 +3,6 @@
     "title": "Public Report",
     "context": {
         "person": false,
-        "place": false }
+        "place": false
+    }
 }

@@ -3,5 +3,6 @@
     "title": "Post Referral Visit",
     "context": {
         "person": false,
-        "place": false }
+        "place": false
+    }
 }

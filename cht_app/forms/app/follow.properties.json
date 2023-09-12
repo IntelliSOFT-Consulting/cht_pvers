@@ -3,5 +3,6 @@
     "title": "Follow Up Report",
     "context": {
         "person": false,
-        "place": false  }
+        "place": false
+    }
 }
