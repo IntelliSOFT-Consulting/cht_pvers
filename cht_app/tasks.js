@@ -42,8 +42,7 @@ module.exports = [
   ],
   appliesIf: function (contact, report) {
     return (Utils.getField(report, 'reporter.group_report.reaction') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor')
-      || (Utils.getField(report, 'reporter.group_report.quality') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor');
-      // || (Utils.getField(report, 'reporter.group_report.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor');
+      || (Utils.getField(report, 'reporter.group_report.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor'); 
   },
   resolvedIf: function (contact, report, event, dueDate) {
     return Utils.isFormSubmittedInWindow(
