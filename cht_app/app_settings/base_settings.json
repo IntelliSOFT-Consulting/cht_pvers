@@ -489,7 +489,7 @@
         ],
         "validations": {
             "join_responses": true,
-            "list": []
+            "list": [] 
         },
         "messages": [
             {
