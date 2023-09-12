@@ -240,7 +240,7 @@ module.exports = [
       level: 'high',
     },
     appliesIf: function (contact, report) {
-      return Utils.getField(report, 'reporter.group_report.status') === 'Patient has not recovered' && user.role === 'chw_supervisor';
+      return (Utils.getField(report, 'reporter.group_report.status') === 'Patient has not recovered' && user.role === 'chw_supervisor') || (Utils.getField(report, 'reporter.group_report.fully_recovered') === 'No' && user.role === 'chw_supervisor');
     },
     resolvedIf: function (contact, report, event, dueDate) {
       return Utils.isFormSubmittedInWindow(
