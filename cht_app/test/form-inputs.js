@@ -32,6 +32,9 @@ module.exports = {
     ],
     death: [
       ['No', 'No', 'No', 'Yes']
+    ],
+    poorQuality: [
+      ['Yes', 'Past 7 days', 'Yes', 'Beyond 7 days', 'Yes', 'Yes', 'No']
     ]
   },
   chwFollowUpScenarios: {

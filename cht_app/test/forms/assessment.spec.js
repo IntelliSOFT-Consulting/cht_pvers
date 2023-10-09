@@ -38,7 +38,19 @@ describe('Assessment form test', () => {
         });
         
     });
+    // Test that the Patient is not available for Assessment
+    it('assessment form can be filled and successfully saved - Poor Quality Medicine', async () => {
+        // Load the assessment form and fill in
+        const result = await harness.fillForm(formName, ...assessmentScenarios.poorQuality);
+        // Verify that the form successfully got submitted
+        expect(result.errors).to.be.empty;
 
+        // Verify some attributes on the resulting report
+        expect(result.report.fields).to.nested.include({
+            'reporter.group_report.medicine': 'Yes'
+        });
+        
+    });
     it('assessment form can be filled and successfully saved - Within Within the Immunization Window', async () => {
         // Load the assessment form and fill in
         const result = await harness.fillForm(formName, ...assessmentScenarios.immunization);

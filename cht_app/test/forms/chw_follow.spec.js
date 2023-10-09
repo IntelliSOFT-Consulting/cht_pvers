@@ -4,7 +4,7 @@ const { chwFollowUpScenarios } = require('../form-inputs');
 const formName = 'chw_follow';
 const harness = new TestHarness();
 
-describe('CHW Follow Up form test', () => {
+describe('CHP Follow Up form test', () => {
     before(async () => {
         return await harness.start();
     });
@@ -20,12 +20,12 @@ describe('CHW Follow Up form test', () => {
         expect(harness.consoleErrors).to.be.empty;
     });
 
-    it('CHW Follow Up  form can be loaded', async () => {
+    it('CHP Follow Up  form can be loaded', async () => {
         await harness.loadForm(`${formName}`);
         expect(harness.state.pageContent).to.include(`${formName}`);
     });
 
-    it('CHW Follow Up  form can be filled and successfully saved - Patient visited the facility and fully recovered', async () => {
+    it('CHP Follow Up  form can be filled and successfully saved - Patient visited the facility and fully recovered', async () => {
         // Load the CHW Follow Up  form and fill in
         const result = await harness.fillForm(formName, ...chwFollowUpScenarios.visitedfaciltyrecovered);
         // Verify that the form successfully got submitted
@@ -37,7 +37,7 @@ describe('CHW Follow Up form test', () => {
         });
         
     });
-    it('CHW Follow Up  form can be filled and successfully saved - Patient visited the facility and never recovered', async () => {
+    it('CHP Follow Up  form can be filled and successfully saved - Patient visited the facility and never recovered', async () => {
         // Load the CHW Follow Up  form and fill in
         const result = await harness.fillForm(formName, ...chwFollowUpScenarios.visitedfaciltyneverrecovered);
         // Verify that the form successfully got submitted
