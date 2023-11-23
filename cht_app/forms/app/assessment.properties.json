@@ -3,6 +3,7 @@
     "title": "Assessment Form",
     "context": {
         "person": true,
-        "place": false
+        "place": false,
+        "expression": "!contact.date_of_death"
     }
 }
