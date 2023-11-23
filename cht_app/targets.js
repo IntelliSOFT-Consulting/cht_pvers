@@ -1,73 +1,53 @@
-
 //Define a function to get the household ID based on the hierarchy configuration
 const getHouseholdId = (contact) => contact.contact && contact.contact.type === 'clinic' ? contact.contact._id : contact.contact.parent && contact.contact.parent._id;
 
 //Define a function to determine if contact is patient
-// const isPatient = (contact) => contact.contact && contact.contact.type === 'person' && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
-// const isChw = (contact) => contact.contact && contact.contact.type === 'person' && user.parent.contact_type === 'chw_area';
+const isPatient = (contact) => contact.contact && contact.contact.type === 'person' && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
+
 
 module.exports = [
 
-
-
-  //CHP Monthly Targets
+  // General: Total households currently registered by CHWs
   {
-    id: 'follow-up-assessments-completed-monthly',
-    translation_key: 'follow.up.assessments.completed.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
+    id: 'households-registered-all-time',
+    translation_key: 'targets.household.registrations.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
     type: 'count',
-    icon: 'icon-up',
+    icon: 'medic-clinic',
     goal: -1,
-    appliesTo: 'reports',
-    appliesToType: ['chw_follow'],
-    date: 'reported',
-    context: 'user.role === "chw"',
+    appliesTo: 'contacts',
+    // context: 'user.contact_type === "chw"',
+    appliesToType: ['household'],
+    appliesIf: c => isPatient(c.contact),
+    date: 'now',
+    aggregate: true
   },
-
+  // General: Population
   {
-    id: 'adverse-drug-reactions-identified-month',
-    translation_key: 'adverse.drug.reactions.identified.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
+    id: 'people-registered-all-time',
+    translation_key: 'targets.person.registrations.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
     type: 'count',
-    icon: 'icon-reactions',
+    icon: 'icon-person',
+    // context: 'user.contact_type === "chw"',
     goal: -1,
-    appliesTo: 'reports',
-    appliesToType: ['assessment'],
-    context: 'user.role === "chw"',
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.group_report_adr.medication') === 'Yes' && Utils.getField(report, 'reporter.group_report.group_report_adr.reaction') === 'Yes');
-    },
-    date: 'reported',
+    appliesTo: 'contacts',
+    appliesToType: ['persons'],
+    appliesIf: (c) => isPatient(c.contact),
+    date: 'now',
+    aggregate: true
   },
-
-  {
-    id: 'adverse-drug-reactions-following-immunization-month',
-    translation_key: 'adverse.drug.reactions.following.immunization.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    type: 'count',
-    icon: 'icon-reactions',
-    goal: -1,
-    appliesTo: 'reports',
-    appliesToType: ['assessment'],
-    context: 'user.role === "chw"',
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.group_report_adr.immunization') === 'Yes' && Utils.getField(report, 'reporter.group_report.group_report_adr.reaction') === 'Yes');
-    },
-    date: 'reported',
-  },
- 
 
   // PADRs: Total reports submitted
   {
     id: 'padr-all-time',
     type: 'count',
     icon: 'icon-sadr',
-    goal: -1,
+    goal: 15,
     translation_key: 'targets.padr.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
-    context: 'user.role === "chw_supervisor"',
     date: 'now'
   },
 
@@ -76,83 +56,24 @@ module.exports = [
     id: 'padr-this-month',
     type: 'count',
     icon: 'icon-sadr',
-    goal: -1,
+    goal: 15,
     translation_key: 'targets.padr.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
-    date: 'reported',
-    context: 'user.role === "chw_supervisor"',
+    date: 'reported'
   },
   // PADRs: Display households registered this month with a target of 15
   {
     id: 'households-with-padr-this-month',
     type: 'count',
     icon: 'icon-household',
-    goal: -1,
+    goal: 15,
     translation_key: 'targets.households.with.padr.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
     date: 'reported',
-    context: 'user.role === "chw_supervisor"',
-    emitCustom: (emit, original, contact) => {
-      const householdId = getHouseholdId(contact);
-      emit(Object.assign({}, original, {
-        _id: householdId,
-        pass: true
-      }));
-    }
-  },
-  // Poor Quality Medicine
-  // PADRs: Total Poor Quality Medicine Reports
-  {
-    id: 'poor-quality-padr-all-time',
-    type: 'count',
-    icon: 'icon-risk',
-    goal: -1,
-    translation_key: 'targets.quality.padr.title',
-    subtitle_translation_key: 'targets.all_time.subtitle',
-    appliesTo: 'reports',
-    appliesToType: ['padr'],
-    context: 'user.role === "chw_supervisor"',
-    date: 'now',
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Medicine');
-    },
-  },
-
-  // PADRs: Monthly reports- shows reports submitted this month with  poor quality medicine
-  {
-    id: 'poor-quality-padr-this-month',
-    type: 'count',
-    icon: 'icon-risk',
-    goal: -1,
-    translation_key: 'targets.quality.padr.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    appliesTo: 'reports',
-    appliesToType: ['padr'],
-    date: 'reported',
-    context: 'user.role === "chw_supervisor"',
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Medicine');
-    },
-  },
-  // PADRs: Display households registered this month with poor quality medicine
-  {
-    id: 'households-with-poor-quality-this-month',
-    type: 'count',
-    icon: 'icon-household',
-    goal: -1,
-    translation_key: 'targets.households.with.quality.padr.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    appliesTo: 'reports',
-    appliesToType: ['padr'],
-    date: 'reported',
-    context: 'user.role === "chw_supervisor"',
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Medicine');
-    },
     emitCustom: (emit, original, contact) => {
       const householdId = getHouseholdId(contact);
       emit(Object.assign({}, original, {
@@ -162,53 +83,6 @@ module.exports = [
     }
   },
 
-
-  // Monthly 
-
-  {
-    id: 'completed-referrals-monthly',
-    translation_key: 'completed.referrals.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    type: 'count',
-    icon: 'icon-assessment',
-    goal: -1,
-    appliesTo: 'reports',
-    appliesToType: ['padr'],
-    context: 'user.role === "chw_supervisor"',
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' ||
-        Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown');
-    },
-    date: 'reported',
-  },
-
-  {
-    id: 'total-number-of-deaths-reported-mpnthly',
-    translation_key: 'total.number.of.deaths.reported.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    type: 'count',
-    icon: 'icon-death-coffin',
-    goal: -1,
-    appliesTo: 'reports',
-    appliesToType: ['death_confirmation'],
-    context: 'user.role === "chw_supervisor"',
-    date: 'reported',
-  },
-  {
-    id: 'total-number-of-recoveries-reported-alt-mpnthly',
-    translation_key: 'total.number.of.recoveries.reported.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    type: 'count',
-    icon: 'icon-referral',
-    goal: -1,
-    appliesTo: 'reports',
-    appliesToType: ['padr'],
-    context: 'user.role === "chw_supervisor"',
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Recovered/Resolved');
-    },
-    date: 'reported',
-  },
   // Follow Up Assessments Completed
   {
     id: 'follow-up-assessments-completed',
@@ -220,7 +94,6 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['chw_follow'],
     date: 'now',
-    context: 'user.role === "chw"',
   },
 
   // Referrals Completed
@@ -234,10 +107,9 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['padr'],
-    context: 'user.role === "chw_supervisor"',
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' ||
-        Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown');
+      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' ||
+        Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown';
     },
     date: 'now',
   },
@@ -251,9 +123,8 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['assessment'],
-    context: 'user.role === "chw"',
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.group_report_adr.medication') === 'Yes' && Utils.getField(report, 'reporter.group_report.group_report_adr.reaction') === 'Yes');
+      return (Utils.getField(report, 'reporter.group_report.medication') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
     },
     date: 'now',
   },
@@ -267,29 +138,14 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['assessment'],
-    context: 'user.role === "chw"',
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.group_report_adr.immunization') === 'Yes' && Utils.getField(report, 'reporter.group_report.group_report_adr.reaction') === 'Yes');
+      return (Utils.getField(report, 'reporter.group_report.immunization') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
     },
     date: 'now',
   },
 
   // Poor Quality Medicine Reported
-  {
-    id: 'poor-quality-medicine-identified_monthly',
-    translation_key: 'poor.quality.medicine.reported.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    type: 'count',
-    icon: 'icon-sadr',
-    goal: -1,
-    appliesTo: 'reports',
-    appliesToType: ['assessment'],
-    context: 'user.role === "chw"',
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.group_report_quality.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.group_report_adr.reaction') === 'Yes');
-    },
-    date: 'reported',
-  },
+
   {
     id: 'poor-quality-medicine-reported',
     translation_key: 'poor.quality.medicine.reported.title',
@@ -299,14 +155,11 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['assessment'],
-    context: 'user.role === "chw"',
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.group_report_quality.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.group_report_adr.reaction') === 'Yes');
+      return (Utils.getField(report, 'reporter.group_report.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
     },
     date: 'now',
   },
-
- 
 
   // Total number of deaths reported
   {
@@ -318,30 +171,10 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['death_confirmation'],
-    context: 'user.role === "chw_supervisor"',
     date: 'now',
   },
-  // Poor Quality Medicine Identified
-
- 
-  
 
   // Total number of recoveries reported
-  {
-    id: 'total-number-of-recoveries-reported-monthly',
-    translation_key: 'total.number.of.recoveries.reported.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    type: 'count',
-    icon: 'icon-referral',
-    goal: -1,
-    appliesTo: 'reports',
-    appliesToType: ['chw_follow'],
-    context: 'user.role === "chw"',
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.fully_recovered') === 'Yes' || Utils.getField(report, 'reporter.group_report.status') === 'Patient recovered');
-    },
-    date: 'reported',
-  },
   {
     id: 'total-number-of-recoveries-reported',
     translation_key: 'total.number.of.recoveries.reported.title',
@@ -350,25 +183,9 @@ module.exports = [
     icon: 'icon-referral',
     goal: -1,
     appliesTo: 'reports',
-    appliesToType: ['chw_follow'],
-    context: 'user.role === "chw"',
+    appliesToType: ['padr', 'chw_follow'],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.fully_recovered') === 'Yes' || Utils.getField(report, 'reporter.group_report.status') === 'Patient recovered');
-    },
-    date: 'now',
-  },
-  {
-    id: 'total-number-of-recoveries-reported-alt',
-    translation_key: 'total.number.of.recoveries.reported.title',
-    subtitle_translation_key: 'targets.all_time.subtitle',
-    type: 'count',
-    icon: 'icon-referral',
-    goal: -1,
-    appliesTo: 'reports',
-    appliesToType: ['padr'],
-    context: 'user.role === "chw_supervisor"',
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Recovered/Resolved');
+      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Recovered/Resolved' || Utils.getField(report, 'reporter.group_report.fully_recovered') === 'Yes' || Utils.getField(report, 'reporter.group_report.status') === 'Patient recovered';
     },
     date: 'now',
   },
