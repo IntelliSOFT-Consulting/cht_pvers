@@ -50,6 +50,39 @@ const cards = [
       }
 
     ]
+  },
+  {
+    label: 'contact.profile.assessment_history',
+    appliesToType: 'report',
+    appliesIf: function (r) {
+      if (thisContact.type !== 'person' || thisContact.contact_type !== 'household_member') { return false; }
+      return r.form === 'assessment';
+    },
+    fields: [
+      {
+        label: 'contact.profile.most_recent_assessment.date',
+        value: (report) => {
+          return report.reported_date;
+        },
+        filter: 'simpleDate',
+        width: 6
+      },
+      {
+        label: 'contact.profile.report_type',
+        value: (report) => {
+          return getField(report, 'form.reporter.group_report.type');
+        },
+        width: 6,
+      },
+      {
+        label: 'contact.profile.most_recent_assessment.outcome',
+        value: (report) => {
+          return getField(report, 'form.outcome_details.group_outcome_details.outcome');
+        },
+        width: 6
+      }
+
+    ]
   }
 ];
 
