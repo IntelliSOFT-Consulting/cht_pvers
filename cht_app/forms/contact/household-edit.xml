@@ -77,9 +77,9 @@
       <bind nodeset="/data/household/contact/name" type="string"/>
       <bind nodeset="/data/household/contact/contact_name" type="string" calculate="../name"/>
       <bind nodeset="/data/household/contact/_id" type="db:person"/>
-      <bind nodeset="/data/household/is_name_generated" type="select1" required="true()" relevant="not( /data/household/contact/_id ) or selected( . , 'true') or boolean( /data/household/contact/_id )" calculate="if(  /data/household/generated_name  = ../name, 'true', 'false')" readonly="boolean( /data/household/contact/_id )"/>
+      <bind nodeset="/data/household/is_name_generated" type="select1" readonly="boolean( /data/household/contact/_id )" calculate="if(  /data/household/generated_name  = ../name, 'true', 'false')" relevant="not( /data/household/contact/_id ) or selected( . , 'true') or boolean( /data/household/contact/_id )" required="true()"/>
       <bind nodeset="/data/household/generated_name" type="string" calculate=" /data/init/generated_name_translation "/>
-      <bind nodeset="/data/household/name" type="string" relevant="boolean( /data/household/contact/_id ) or not( /data/household/contact/_id ) or not(selected( /data/household/is_name_generated , 'true')) or not(selected( /data/household/is_name_generated , 'yes'))" calculate="if( ( selected( /data/household/is_name_generated , 'true') or selected( /data/household/is_name_generated , 'yes') ),  /data/household/generated_name , .)" required="true()"/>
+      <bind nodeset="/data/household/name" type="string" calculate="if( ( selected( /data/household/is_name_generated , 'true') or selected( /data/household/is_name_generated , 'yes') ),  /data/household/generated_name , .)" relevant="boolean( /data/household/contact/_id ) or not( /data/household/contact/_id ) or not(selected( /data/household/is_name_generated , 'true')) or not(selected( /data/household/is_name_generated , 'yes'))" required="true()"/>
       <bind nodeset="/data/household/geolocation" type="string" calculate="concat(../../inputs/meta/location/lat, concat(' ', ../../inputs/meta/location/long))"/>
       <bind nodeset="/data/household/meta/created_by" type="string" readonly="true()"/>
       <bind nodeset="/data/household/meta/created_by_person_uuid" type="string" readonly="true()"/>
