@@ -390,7 +390,7 @@
         "district_hospital",
         "supervisor_region",
         "health_center",
-        "clinic"
+        "household"
     ],
     "contact_types": [
         {
@@ -430,7 +430,7 @@
             "edit_form": "form:contact:health_center:edit"
         },
         {
-            "id": "clinic",
+            "id": "household",
             "name_key": "contact.type.clinic",
             "group_key": "contact.type.clinic.plural",
             "create_key": "contact.type.clinic.new",
@@ -439,8 +439,8 @@
                 "health_center"
             ],
             "icon": "medic-clinic",
-            "create_form": "form:contact:clinic:create",
-            "edit_form": "form:contact:clinic:edit",
+            "create_form": "form:contact:household:create",
+            "edit_form": "form:contact:household:edit",
             "count_visits": true
         },
         {
@@ -463,12 +463,13 @@
         
         {
             "id": "household_member",
-            "name_key": "contact.type.member",
-            "group_key": "contact.type.member.plural",
-            "create_key": "contact.type.member.new",
-            "edit_key": "contact.type.member.edit",
+            "name_key": "contact.type.person",
+            "group_key": "contact.type.person.plural",
+            "create_key": "contact.type.person.new",
+            "edit_key": "contact.type.person.edit",
+            "primary_contact_key": "clinic.field.contact",
             "parents": [
-                "clinic"
+                "household"
             ],
             "icon": "medic-person",
             "create_form": "form:contact:household_member:create",
