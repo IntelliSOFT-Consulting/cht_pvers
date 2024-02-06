@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   couchdb:
-    image: public.ecr.aws/medic/cht-couchdb:4.5.1
+    image: public.ecr.aws/medic/cht-couchdb:4.5.0
     volumes:
       - ${COUCHDB_DATA:-./srv}:/opt/couchdb/data
       - cht-credentials:/opt/couchdb/etc/local.d/

@@ -17518,7 +17518,7 @@ Remove this person by pressing the - button&lt;/span&gt;</value>
       <bind nodeset="/data/init/first_name" type="string" jr:constraintMsg="Please enter valid names" required="true()" constraint="not(regex(.,'\d'))"/>
       <bind nodeset="/data/init/middle_name" type="string" jr:constraintMsg="Please enter valid names" constraint="not(regex(.,'\d'))"/>
       <bind nodeset="/data/init/last_name" type="string" jr:constraintMsg="Please enter valid names" required="true()" constraint="not(regex(.,'\d'))"/>
-      <bind nodeset="/data/init/hh_head_name" type="string" calculate="concat(string(../first_name),' ',if(../middle_name != '',string(../middle_name),''),' ',string(../last_name))" required="true()"/>
+      <bind nodeset="/data/init/hh_head_name" type="string" required="true()" calculate="concat(string(../first_name),' ',if(../middle_name != '',string(../middle_name),''),' ',string(../last_name))"/>
       <bind nodeset="/data/init/hh_head_g_sex" type="select1" required="true()"/>
       <bind nodeset="/data/init/hh_head_dob_method" type="select1" required="true()"/>
       <bind nodeset="/data/init/hh_head_dob_calendar" type="date" jr:constraintMsg="Calculated age must be between 10 and 120!" required="true()" relevant="selected(../hh_head_dob_method,'calendar')" constraint=" /data/init/hh_head_age_in_years  &gt;= 10 and  /data/init/hh_head_age_in_years  &lt;= 120"/>
@@ -17582,7 +17582,7 @@ concat(string( /data/init/hh_head_ephemeral_years ),'-',if( /data/init/hh_head_e
       <bind nodeset="/data/repeat/child/first_name" type="string" jr:constraintMsg="Please enter a valid name" required="true()" constraint="not(regex(.,'\d'))"/>
       <bind nodeset="/data/repeat/child/middle_name" type="string" jr:constraintMsg="Please enter a valid name" constraint="not(regex(.,'\d'))"/>
       <bind nodeset="/data/repeat/child/last_name" type="string" jr:constraintMsg="Please enter a valid name" required="true()" constraint="not(regex(.,'\d'))"/>
-      <bind nodeset="/data/repeat/child/name" type="string" calculate="concat(string(../first_name),' ',if(../middle_name != '',string(../middle_name),''),' ',string(../last_name))" required="true()"/>
+      <bind nodeset="/data/repeat/child/name" type="string" required="true()" calculate="concat(string(../first_name),' ',if(../middle_name != '',string(../middle_name),''),' ',string(../last_name))"/>
       <bind nodeset="/data/repeat/child/hh_member_name" type="string" calculate="../name"/>
       <bind nodeset="/data/repeat/child/sex" type="select1" required="true()"/>
       <bind nodeset="/data/repeat/child/date_of_birth" type="string" calculate="../dob_iso"/>
