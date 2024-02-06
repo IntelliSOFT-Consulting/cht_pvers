@@ -6,8 +6,8 @@ This is a Pharmacovigilance module for the Community Health Toolkit powered by m
 Before you begin, ensure you have the following tools:
 
 ```
-git or the Github Desktop
-docker and docker-compose.
+[git](https://git-scm.com/downloads) or the [Github Desktop](https://desktop.github.com/)
+[docker](https://docs.docker.com/engine/install/ubuntu/) and [docker-compose](https://docs.docker.com/compose/install/).
 ```
 # Developing locally 
 To build CHT apps on your local system, you need to have some additional tools:
@@ -35,6 +35,28 @@ Using npm on your terminal, install cht-conf globally using the command below.
 
 ```
 npm install -g cht-conf
+```
+## Spin up 🔥🔥 the project
+Using the script `./start.sh`
+
+```
+  up       starts the docker containers
+```
+
+NOTE:
+
+Remember to create a `.env` file inside the cht-4-app-developer directory as shown below
+
+```
+NGINX_HTTP_PORT=yourpreferredport (eg. 80)
+NGINX_HTTPS_PORT=secureport (eg. 843)
+CHT_COMPOSE_PROJECT_NAME=yourprojectname (eg. production)
+COUCHDB_SECRET=foo 
+DOCKER_CONFIG_PATH=./
+COUCHDB_DATA=./couchd 
+CHT_COMPOSE_PATH=./
+COUCHDB_USER=yourusername 
+COUCHDB_PASSWORD=yourpassword
 ```
 
 
