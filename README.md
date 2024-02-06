@@ -5,8 +5,8 @@ This is a Pharmacovigilance module for the Community Health Toolkit powered by m
 # Prerequisite
 Before you begin, ensure you have the following tools:
  
-[git](https://git-scm.com/downloads) or the [Github Desktop](https://desktop.github.com/)
-[docker](https://docs.docker.com/engine/install/ubuntu/) and [docker-compose](https://docs.docker.com/compose/install/).
+* [git](https://git-scm.com/downloads) or the [Github Desktop](https://desktop.github.com/)
+* [docker](https://docs.docker.com/engine/install/ubuntu/) and [docker-compose](https://docs.docker.com/compose/install/).
  
 # Developing locally 
 To build CHT apps on your local system, you need to have some additional tools:
