@@ -37,6 +37,11 @@ Using npm on your terminal, install cht-conf globally using the command below.
 npm install -g cht-conf
 ```
 ## Spin up 🔥🔥 the project
+
+Clone the project from:
+```
+https://github.com/IntelliSOFT-Consulting/cht_pvers.git
+```
 Using the script `./start.sh`
 
 ```
